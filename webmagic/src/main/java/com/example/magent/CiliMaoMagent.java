@@ -48,7 +48,7 @@ public class CiliMaoMagent implements PageProcessor {
 
         for (CiliMaoPopeline.Entity entity : list) {
             if (entity.getNum() < 3) {
-                File file = new File("D:\\webmagic\\magent.txt");
+                File file = new File("D:\\webmagic\\小早川怜子magent.txt");
 
                 if (!file.exists()) {
                     file.createNewFile();
@@ -60,7 +60,7 @@ public class CiliMaoMagent implements PageProcessor {
     }
     public static void main(String[] args) throws IOException {
 
-        List<String> list = FileReader.create(new File("D:\\webmagic\\織田真子.txt")).readLines();
+        List<String> list = FileReader.create(new File("D:\\webmagic\\小早川怜子.txt")).readLines();
 
         CiliMaoMagent ciliMaoMagent = new CiliMaoMagent();
         for (String s : list) {

@@ -13,12 +13,19 @@ import java.io.File;
  * @date 2018-09-16 1:41
  **/
 public class FileUpdate  extends FilePersistentBase implements Pipeline {
+    private String name;
+
+    public FileUpdate(String name) {
+        this.name = name;
+    }
     @Override
     public void process(ResultItems resultItems, Task task) {
         try {
-            File file = new File("D:\\webmagic\\code.txt");
+            File file = new File("D:\\webmagic\\"+name+"_code.txt");
 
-            if (!file.exists()) file.createNewFile();
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
             PlainText data = (PlainText) resultItems.get("data");
             FileWriter.create(file).writeLines(CollUtil.newArrayList(data.get()), true);

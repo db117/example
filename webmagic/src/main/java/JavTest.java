@@ -1,6 +1,7 @@
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.ConsolePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 /**
@@ -27,9 +28,9 @@ public class JavTest implements PageProcessor {
 
     public static void main(String[] args) {
         Spider.create(new JavTest())
-                .addUrl("https://www.seedmm.net/star/2jv")
-                .addPipeline(new FileUpdate())
-//                .addPipeline(new ConsolePipeline())
+                .addUrl("https://www.seedmm.net/star/ef2")
+                .addPipeline(new FileUpdate("森沢かな（飯岡かなこ）"))
+                .addPipeline(new ConsolePipeline())
                 .run();
 
     }
