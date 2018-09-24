@@ -3,6 +3,7 @@ package com.example.magent;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.file.FileReader;
 import cn.hutool.core.io.file.FileWriter;
+import cn.hutool.core.util.StrUtil;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -12,15 +13,28 @@ import us.codecraft.webmagic.processor.PageProcessor;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * @author 大兵
  * @date 2018-09-17 23:28
  **/
-public class CiliMaoMagent implements PageProcessor {
+public class CiliMaoMagent implements PageProcessor, Runnable {
+    /**
+     * 路径
+     */
+    private String path;
+
     // 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
     private Site site = Site.me().setRetryTimes(3).setSleepTime(100);
+
+    public CiliMaoMagent() {
+    }
+
+    public CiliMaoMagent(String path) {
+        this.path = path;
+    }
 
     @Override
     public void process(Page page) {
@@ -38,17 +52,23 @@ public class CiliMaoMagent implements PageProcessor {
         return site;
     }
 
-    public static void upload(String code) throws IOException {
-        List<CiliMaoPopeline.Entity> list = new ArrayList<>();
+    public  void upload(String code) throws IOException {
+        LinkedList<CiliMaoPopeline.Entity> list = new LinkedList<>();
         Spider.create(new CiliMaoMagent())
-                .addUrl("http://www.cilimao.cc/search?word="+code+"&sortProperties=content_size")
+                .addUrl("http://www.cilimao.cc/search?word=" + code + "&sortProperties=content_size")
                 .addPipeline(new CiliMaoPopeline(list))
                 .addPipeline(new ConsolePipeline())
                 .run();
 
+        String[] split = StrUtil.split(path, "\\");
+        String s = split[split.length - 1];
+        String replace = StrUtil.replace(s, "_code", "_magent");
+
+        String magentPath = "D:\\webmagic\\" + replace;
+
         for (CiliMaoPopeline.Entity entity : list) {
             if (entity.getNum() < 3) {
-                File file = new File("D:\\webmagic\\小早川怜子magent.txt");
+                File file = new File(magentPath);
 
                 if (!file.exists()) {
                     file.createNewFile();
@@ -58,13 +78,28 @@ public class CiliMaoMagent implements PageProcessor {
             }
         }
     }
-    public static void main(String[] args) throws IOException {
 
-        List<String> list = FileReader.create(new File("D:\\webmagic\\小早川怜子.txt")).readLines();
+    @Override
+    public void run() {
+        List<String> list = FileReader.create(new File(path)).readLines();
 
         CiliMaoMagent ciliMaoMagent = new CiliMaoMagent();
         for (String s : list) {
-            upload(s);
+            try {
+                upload(s);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        List<String> list = FileReader.create(new File("D:\\webmagic\\Rio（柚木ティナ）_code.txt")).readLines();
+
+        CiliMaoMagent ciliMaoMagent = new CiliMaoMagent();
+        for (String s : list) {
+//            upload(s);
         }
     }
 }

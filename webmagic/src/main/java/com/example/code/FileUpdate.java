@@ -1,3 +1,5 @@
+package com.example.code;
+
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.file.FileWriter;
 import us.codecraft.webmagic.ResultItems;
