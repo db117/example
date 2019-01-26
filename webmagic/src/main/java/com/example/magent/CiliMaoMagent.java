@@ -83,23 +83,12 @@ public class CiliMaoMagent implements PageProcessor, Runnable {
     public void run() {
         List<String> list = FileReader.create(new File(path)).readLines();
 
-        CiliMaoMagent ciliMaoMagent = new CiliMaoMagent();
         for (String s : list) {
             try {
                 upload(s);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    public static void main(String[] args) throws IOException {
-
-        List<String> list = FileReader.create(new File("D:\\webmagic\\Rio（柚木ティナ）_code.txt")).readLines();
-
-        CiliMaoMagent ciliMaoMagent = new CiliMaoMagent();
-        for (String s : list) {
-//            upload(s);
         }
     }
 }

@@ -14,17 +14,19 @@ import java.util.List;
  * @date 2018-09-17 23:35
  **/
 public class CiliMaoPopeline extends FilePersistentBase implements Pipeline {
-    public List<Entity> list;
-  public  CiliMaoPopeline (List<Entity> list){
-      this.list = list;
-  }
+    private List<Entity> list;
+
+    CiliMaoPopeline(List<Entity> list) {
+        this.list = list;
+    }
+
     @Override
     public void process(ResultItems resultItems, Task task) {
         Entity entity = new Entity();
-        PlainText data = (PlainText) resultItems.get("data");
+        PlainText data = resultItems.get("data");
         entity.setData(data.get());
 
-        PlainText num = (PlainText) resultItems.get("num");
+        PlainText num = resultItems.get("num");
 
         String[] split = StrUtil.split(num.get(), "个文件");
 
@@ -33,23 +35,23 @@ public class CiliMaoPopeline extends FilePersistentBase implements Pipeline {
         list.add(entity);
     }
 
-    public class Entity{
+    class Entity {
         String data;
         int num;
 
-        public void setData(String data) {
+        void setData(String data) {
             this.data = data;
         }
 
-        public void setNum(int num) {
+        void setNum(int num) {
             this.num = num;
         }
 
-        public String getData() {
+        String getData() {
             return data;
         }
 
-        public int getNum() {
+        int getNum() {
             return num;
         }
     }

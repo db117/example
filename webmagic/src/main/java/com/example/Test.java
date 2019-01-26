@@ -22,7 +22,7 @@ public class Test {
         File file = new File("D:\\webmagic");
         File[] files = file.listFiles();
 
-        List<String> paths = new ArrayList<String>();
+        List<String> paths = new ArrayList<>();
 
         assert files != null;
         for (File file1 : files) {
@@ -34,10 +34,17 @@ public class Test {
         // 线程池
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(4, 8,
                 0L, TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<Runnable>(),new NamedThreadFactory("jav",false));
+                new LinkedBlockingQueue<>(),new NamedThreadFactory("jav",false));
 
         paths.forEach(p->{
             threadPool.execute(new CiliMaoMagent(p));
         });
+
+        threadPool.shutdown();
+        try {
+            threadPool.awaitTermination(2, TimeUnit.HOURS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
