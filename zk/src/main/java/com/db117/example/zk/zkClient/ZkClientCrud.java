@@ -1,8 +1,11 @@
 package com.db117.example.zk.zkClient;
 
 import lombok.extern.slf4j.Slf4j;
+import org.I0Itec.zkclient.IZkDataListener;
+import org.I0Itec.zkclient.IZkStateListener;
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.serialize.SerializableSerializer;
+import org.apache.zookeeper.Watcher;
 
 import java.util.List;
 
@@ -90,5 +93,52 @@ public class ZkClientCrud<T> {
 
     public void close() {
         zkClient.close();
+    }
+
+    public void lister(String path) {
+        //对父节点添加监听变化。
+        zkClient.subscribeDataChanges(path, new IZkDataListener() {
+            @Override
+            public void handleDataChange(String dataPath, Object data) throws Exception {
+                log.info("变更的节点为:[{}],[{}]", dataPath, data);
+            }
+
+            @Override
+            public void handleDataDeleted(String dataPath) throws Exception {
+                log.info("删除的节点为:[{}]", dataPath);
+            }
+        });
+        //对父节点添加监听子节点变化。
+        zkClient.subscribeChildChanges(path,
+                (parentPath, currentChilds) ->
+                        log.info("parentPath: [{}],currentChilds:[{}]"
+                                , parentPath
+                                , currentChilds)
+        );
+        //对父节点添加监听子节点变化。
+        zkClient.subscribeStateChanges(new IZkStateListener() {
+            @Override
+            public void handleStateChanged(Watcher.Event.KeeperState state) throws Exception {
+                if (state == Watcher.Event.KeeperState.SyncConnected) {
+                    // 当我重新启动后start，监听触发
+                    log.info("连接成功");
+                } else if (state == Watcher.Event.KeeperState.Disconnected) {
+                    // 当我在服务端将zk服务stop时，监听触发
+                    log.info("连接断开");
+                } else {
+                    log.info("其他状态[{}]", state);
+                }
+            }
+
+            @Override
+            public void handleNewSession() throws Exception {
+                log.info("重建session");
+            }
+
+            @Override
+            public void handleSessionEstablishmentError(Throwable error) throws Exception {
+            }
+        });
+
     }
 }
