@@ -24,7 +24,7 @@ public class ZookeeperCrud {
     /**
      * 创建持久节点
      *
-     * @param path
+     * @param path 路径
      * @param data 数据
      * @return 路径
      */
