@@ -209,6 +209,7 @@ public class ExcelImportUtil {
             InputStream sheetInputStream) throws IOException, SAXException {
         // 数据格式化对象
         DataFormatter formatter = new DataFormatter();
+        // short date 数据读取
         formatter.addFormat("m/d/yy", new SimpleDateFormat("yyyy/MM/dd"));
         InputSource sheetSource = new InputSource(sheetInputStream);
         try {
