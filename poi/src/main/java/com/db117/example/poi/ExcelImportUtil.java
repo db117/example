@@ -1,6 +1,5 @@
 package com.db117.example.poi;
 
-import cn.hutool.core.bean.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ooxml.util.SAXHelper;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -102,26 +101,6 @@ public class ExcelImportUtil {
         this.readFirstSheetOnly = readFirstSheetOnly;
     }
 
-    /**
-     * 导入Excel
-     *
-     * @param tClass 转换后对象
-     * @param file   导入的文件
-     * @param header Excel头转对象
-     * @return 对象集合
-     */
-    public static <T> List<T> doImport(Class<T> tClass
-            , File file
-            , String[] header) {
-        List<T> list = new ArrayList<>();
-        ExcelImportUtil excelImportUtil = new ExcelImportUtil(
-                file
-                , header
-                // 转换为对象,并添加到集合中
-                , map -> list.add(BeanUtil.mapToBean(map, tClass, true)));
-        excelImportUtil.process();
-        return list;
-    }
 
     /**
      * 导入Excel
