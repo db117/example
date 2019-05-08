@@ -15,6 +15,7 @@
         <module>poi</module>
         <module>util</module>
         <module>groovy</module>
+        <module>websocket</module>
     </modules>
 
     <properties>
