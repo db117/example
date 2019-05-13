@@ -16,6 +16,7 @@
         <module>util</module>
         <module>groovy</module>
         <module>websocket</module>
+        <module>leetcode</module>
     </modules>
 
     <properties>
