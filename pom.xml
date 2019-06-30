@@ -20,12 +20,12 @@
     </modules>
 
     <properties>
-        <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
-        <hutool.version>4.5.10</hutool.version>
-        <guava.version>27.1-jre</guava.version>
-        <mybatis-plus.version>3.1.1</mybatis-plus.version>
-        <mysql-connector-java.version>8.0.15</mysql-connector-java.version>
-        <druid.version>1.1.16</druid.version>
+        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <hutool.version>4.5.16</hutool.version>
+        <guava.version>28.0-jre</guava.version>
+        <mybatis-plus.version>3.1.2</mybatis-plus.version>
+        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
+        <druid.version>1.1.17</druid.version>
         <fastjson.version>1.2.58</fastjson.version>
         <cglib.version>3.2.12</cglib.version>
         <poi.version>4.1.0</poi.version>
