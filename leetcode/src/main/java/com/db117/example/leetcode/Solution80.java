@@ -2,6 +2,8 @@ package com.db117.example.leetcode;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
+
 /**
  * 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素最多出现两次，返回移除后数组的新长度。
  * <p>
@@ -47,7 +49,30 @@ import lombok.extern.slf4j.Slf4j;
  **/
 @Slf4j
 public class Solution80 {
+    public static void main(String[] args) {
+        int[] ints = {0, 0, 1, 1, 1, 1, 2, 3, 3};
+        System.out.println(new Solution80().removeDuplicates(ints));
+        System.out.println(Arrays.toString(ints));
+    }
     public int removeDuplicates(int[] nums) {
-        return 0;
+        // 已经整理好的数组下标(第一个需要替换的位置为第二个)
+        int index = 1;
+        // 相同数量
+        int count = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                // 等于前一个数字,则数量加一
+                count++;
+            } else {
+                // 不等于则重置数量
+                count = 1;
+            }
+
+            if (count <= 2) {
+                nums[index++] = nums[i];
+            }
+        }
+        return index;
     }
 }
