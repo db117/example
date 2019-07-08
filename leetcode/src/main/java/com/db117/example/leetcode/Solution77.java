@@ -2,6 +2,7 @@ package com.db117.example.leetcode;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +30,37 @@ import java.util.List;
  **/
 @Slf4j
 public class Solution77 {
+    public static void main(String[] args) {
+        System.out.println(new Solution77().combine(4, 2));
+    }
+
     public List<List<Integer>> combine(int n, int k) {
-        return null;
+        List<List<Integer>> res = new ArrayList<>();
+        backtrack(res, new ArrayList<>(), n, k, 1);
+        return res;
+    }
+
+    /**
+     * 回溯
+     *
+     * @param res  然后
+     * @param temp 当前
+     * @param n    总数
+     * @param k    需要个数
+     * @param j    当前位置
+     */
+    public void backtrack(List<List<Integer>> res, List<Integer> temp, int n, int k, int j) {
+        if (k == 0) {
+            // 结束
+            res.add(new ArrayList<>(temp));
+            return;
+        }
+
+        // 取得数必须大于已经取的数字
+        for (int i = j; i <= n; i++) {
+            temp.add(i);
+            backtrack(res, temp, n, k - 1, i + 1);
+            temp.remove(temp.size() - 1);
+        }
     }
 }
