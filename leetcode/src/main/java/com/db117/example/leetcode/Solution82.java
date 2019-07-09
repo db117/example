@@ -23,23 +23,45 @@ import lombok.extern.slf4j.Slf4j;
  **/
 @Slf4j
 public class Solution82 {
+    public static void main(String[] args) {
+        int[] data = new int[]{
+                1, 1
+        };
+        ListNode last = new ListNode(data[0]);
+        ListNode head = last;
+        for (int i = 1; i < data.length; i++) {
+            last.next = new ListNode(data[i]);
+            last = last.next;
+        }
+
+        ListNode listNode = new Solution82().deleteDuplicates(head);
+
+        while (listNode != null) {
+            System.out.println(listNode.val);
+            listNode = listNode.next;
+        }
+    }
+
     public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return null;
+        }
         // 创建已经虚拟的节点,使其下一个为要返回的头结点
         ListNode first = new ListNode(Integer.MIN_VALUE);
         first.next = head;
         // 慢节点的前置节点
-        ListNode pre = null;
+        ListNode pre = first;
         // 慢指针
         ListNode slow = head;
         // 快指针
-        ListNode fast = head.next;
+        ListNode fast = head;
 
         while (fast != null && fast.next != null) {
             // 不重复,则一直循环到重复为止
-            while (fast.next != null && slow.val != fast.val) {
+            while (fast.next != null && slow.val != fast.next.val) {
                 // 指针后移
                 pre = slow;
-                slow = pre.next;
+                slow = slow.next;
                 fast = slow;
             }
             // 重复,则一直到不重复为止
