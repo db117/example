@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Solution86 {
     public static void main(String[] args) {
         int[] data = new int[]{
-                1, 1
+                1
         };
         ListNode last = new ListNode(data[0]);
         ListNode head = last;
@@ -32,7 +32,7 @@ public class Solution86 {
             last = last.next;
         }
 
-        ListNode listNode = new Solution86().partition(head, 0);
+        ListNode listNode = new Solution86().partition(head, 2);
 
         while (listNode != null) {
             System.out.println(listNode.val);
@@ -41,7 +41,48 @@ public class Solution86 {
     }
 
     public ListNode partition(ListNode head, int x) {
-        return null;
+        if (head == null) {
+            return null;
+        }
+        // 用两个链表进行保存
+        ListNode less = null, big = null;
+        // 虚拟的头结点,指向需要返回的节点
+        ListNode lessBefore = new ListNode(-1);
+        ListNode bigBefore = new ListNode(-1);
+        while (head != null) {
+            // 比目标小的节点
+            if (head.val < x) {
+                if (lessBefore.next == null) {
+                    // 找到第一个小链表头
+                    less = head;
+                    lessBefore.next = less;
+                } else {
+                    less.next = head;
+                    less = less.next;
+                }
+            } else {
+                // 比目标节点大的节点
+                if (bigBefore.next == null) {
+                    // 找到第一个大链表头
+                    big = head;
+                    bigBefore.next = head;
+                } else {
+                    big.next = head;
+                    big = big.next;
+                }
+            }
+            head = head.next;
+        }
+        // 没有小节点的话
+        if (lessBefore.next == null) {
+            return bigBefore.next;
+        }
+        // 拼接链表
+        less.next = bigBefore.next;
+        if (big != null) {
+            big.next = null;
+        }
+        return lessBefore.next;
     }
 
     public static class ListNode {
