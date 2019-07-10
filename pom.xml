@@ -54,12 +54,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
-            <version>${jmh.version}</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core-benchmarks -->
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
@@ -67,7 +61,15 @@
             <version>${jmh.version}</version>
             <!--  <scope>test</scope>-->
         </dependency>
-
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+            <!--
+            the processor artifact is required only during compilation and
+            does not need to be transitive, hence provided scope
+            -->
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
