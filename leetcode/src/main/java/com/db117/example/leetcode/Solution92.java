@@ -28,12 +28,12 @@ public class Solution92 {
         ListNode node = ListNodeBuilder.builder(new int[]{
                 1, 2, 3, 4, 5
         });
-        System.out.println(new Solution92().reverseBetween(node, 1, 1));
+        System.out.println(new Solution92().reverseBetween(node, 2, 4));
         ListNodeBuilder.print(node);
     }
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
-        if (head == null || head.next == null) {
+        if (head == null || head.next == null || m == n) {
             return head;
         }
         // 快进到需要换的位置
@@ -47,20 +47,22 @@ public class Solution92 {
         }
 
         ListNode last = null;
-        // 下一个节点开始反转
+        // 下一个节点开始反转,反转后指向最后一个翻转节点
         ListNode start = pre;
+        // 反转的第一个节点,反转后指向后面未反转的链表
         ListNode end = cur;
         // 调转方向
-        while (n > 1) {
+        while (n > 0) {
             last = cur.next;
             cur.next = pre;
-            cur = last;
             pre = cur;
+            cur = last;
             n--;
         }
 
         // 拼接链表
         if (start == null) {
+            // m=1
             head = pre;
         } else {
             start.next = pre;
