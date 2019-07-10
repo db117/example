@@ -1,5 +1,7 @@
 package com.db117.example.leetcode;
 
+import com.db117.example.leetcode.com.db117.example.Util.ListNode;
+import com.db117.example.leetcode.com.db117.example.Util.ListNodeBuilder;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -25,19 +27,11 @@ public class Solution86 {
         int[] data = new int[]{
                 1
         };
-        ListNode last = new ListNode(data[0]);
-        ListNode head = last;
-        for (int i = 1; i < data.length; i++) {
-            last.next = new ListNode(data[i]);
-            last = last.next;
-        }
+        ListNode head = ListNodeBuilder.builder(data);
 
         ListNode listNode = new Solution86().partition(head, 2);
 
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
-        }
+        ListNodeBuilder.print(listNode);
     }
 
     public ListNode partition(ListNode head, int x) {
@@ -83,14 +77,5 @@ public class Solution86 {
             big.next = null;
         }
         return lessBefore.next;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }

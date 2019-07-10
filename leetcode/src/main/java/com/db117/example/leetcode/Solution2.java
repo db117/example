@@ -1,5 +1,6 @@
 package com.db117.example.leetcode;
 
+import com.db117.example.leetcode.com.db117.example.Util.ListNode;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -59,15 +60,5 @@ public class Solution2 {
         }
 
         return res;
-    }
-
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }
