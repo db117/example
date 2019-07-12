@@ -69,6 +69,24 @@ public class Solution102 {
     }
 
     public List<List<Integer>> levelOrder2(TreeNode root) {
-        return null;
+        List<List<Integer>> res = new ArrayList<>();
+        helper(res, root, 0);
+        return res;
+    }
+
+    public void helper(List<List<Integer>> res, TreeNode treeNode, int depth) {
+        if (treeNode == null) {
+            return;
+        }
+        // 当前深度大于数组长度
+        if (depth > res.size() - 1) {
+            res.add(new ArrayList<>());
+        }
+        // 添加到本层
+        res.get(depth).add(treeNode.val);
+        // 左
+        helper(res, treeNode.left, depth + 1);
+        // 右
+        helper(res, treeNode.right, depth + 1);
     }
 }
