@@ -41,7 +41,7 @@ import java.util.List;
 public class Solution95 {
     public static void main(String[] args) {
         for (TreeNode treeNode : new Solution95().generateTrees(5)) {
-            TreeNodeUtil.beforePrint(treeNode);
+            TreeNodeUtil.preorderPrint(treeNode);
             System.out.println("---");
         }
     }

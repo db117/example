@@ -16,13 +16,13 @@ public class TreeNodeUtil {
      *
      * @param treeNode 二叉树
      */
-    public static void beforePrint(TreeNode treeNode) {
+    public static void preorderPrint(TreeNode treeNode) {
         if (treeNode == null) {
             return;
         }
         System.out.println(treeNode.val);
-        beforePrint(treeNode.left);
-        beforePrint(treeNode.right);
+        preorderPrint(treeNode.left);
+        preorderPrint(treeNode.right);
     }
 
     /**
