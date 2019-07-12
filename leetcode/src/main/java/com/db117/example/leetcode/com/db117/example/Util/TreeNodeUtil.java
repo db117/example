@@ -12,16 +12,40 @@ public class TreeNodeUtil {
     }
 
     /**
-     * 打印二叉树
+     * 前序打印二叉树
      *
      * @param treeNode 二叉树
      */
-    public static void print(TreeNode treeNode) {
+    public static void beforePrint(TreeNode treeNode) {
         if (treeNode == null) {
             return;
         }
         System.out.println(treeNode.val);
-        print(treeNode.left);
-        print(treeNode.right);
+        beforePrint(treeNode.left);
+        beforePrint(treeNode.right);
+    }
+
+    /**
+     * 中序遍历
+     */
+    public static void inorderPrint(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        inorderPrint(root.left);
+        System.out.println(root.val);
+        inorderPrint(root.right);
+    }
+
+    /**
+     * 后序遍历打印
+     */
+    public static void postOrderPrint(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        postOrderPrint(root.left);
+        postOrderPrint(root.right);
+        System.out.println(root.val);
     }
 }
