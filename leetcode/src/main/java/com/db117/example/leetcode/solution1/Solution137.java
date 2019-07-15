@@ -28,4 +28,31 @@ import lombok.extern.slf4j.Slf4j;
  **/
 @Slf4j
 public class Solution137 {
+    public int singleNumber(int[] nums) {
+        // 保存每一位出现的次数
+        int[] temp = new int[32];
+
+        // 计算每一位出现的次数
+        for (int num : nums) {
+            int i = 1;
+            int j = 31;
+            while (j >= 0) {
+                if ((num & i) != 0) {
+                    temp[j]++;
+                }
+                j--;
+                i <<= 1;
+            }
+        }
+        int res = 0;
+        // 把数组转换为数字
+        // 数组中数字对3取模肯定不会大于1
+        for (int i = 1, j = 31; j >= 0; i <<= 1, j--) {
+            if (temp[j] % 3 != 0) {
+                // 取模后不等于0,说明那个只出现1次的数字在该位上
+                res |= i;
+            }
+        }
+        return res;
+    }
 }
