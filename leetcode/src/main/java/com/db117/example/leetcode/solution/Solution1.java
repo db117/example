@@ -2,6 +2,9 @@ package com.db117.example.leetcode.solution;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
  * <p>
@@ -29,6 +32,23 @@ public class Solution1 {
                     res[0] = i;
                     res[1] = x;
                 }
+            }
+        }
+        return res;
+    }
+
+    public int[] twoSum2(int[] nums, int target) {
+        int[] res = new int[2];
+        Map<Integer, Integer> map = new HashMap<>(nums.length);
+        for (int i = 0; i < nums.length; i++) {
+            // 遍历数组,如果在map中找到则返回
+            Integer index = map.get(target - nums[i]);
+            if (index == null) {
+                map.put(nums[i], i);
+            } else {
+                res[0] = i;
+                res[1] = index;
+                break;
             }
         }
         return res;
