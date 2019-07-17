@@ -27,7 +27,7 @@ import java.util.Map;
 @Slf4j
 public class Solution387 {
     public static void main(String[] args) {
-        System.out.println(new Solution387().firstUniqChar("loveleetcode"));
+        System.out.println(new Solution387().firstUniqChar1("loveleetcode"));
     }
 
     public int firstUniqChar(String s) {
@@ -42,6 +42,22 @@ public class Solution387 {
         // 找的为1的
         for (int i = 0; i < len; i++) {
             if (map.get(s.charAt(i)) == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int firstUniqChar1(String s) {
+        char[] chars = s.toCharArray();
+        // 每一个字符出现的次数
+        int[] temp = new int[26];
+        for (char aChar : chars) {
+            temp[aChar - 'a']++;
+        }
+        // 找到第一个为1的
+        for (int i = 0; i < chars.length; i++) {
+            if (temp[chars[i] - 'a'] == 1) {
                 return i;
             }
         }
