@@ -17,6 +17,7 @@
         <module>groovy</module>
         <module>websocket</module>
         <module>leetcode</module>
+        <module>openfeign</module>
     </modules>
 
     <properties>
