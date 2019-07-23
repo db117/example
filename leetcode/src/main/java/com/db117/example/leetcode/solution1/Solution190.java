@@ -42,6 +42,15 @@ import lombok.extern.slf4j.Slf4j;
 public class Solution190 {
     // you need treat n as an unsigned value
     public int reverseBits(int n) {
-        return Integer.reverse(n);
+        int res = 0;
+
+        for (int i = 0; i <= 32; i++) {
+            int temp = n >>> i & 1;
+            // 如果第i为不为0则放到31-i的位置
+            if (temp == 1) {
+                res |= (temp << (31 - i));
+            }
+        }
+        return res;
     }
 }
