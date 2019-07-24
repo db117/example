@@ -67,8 +67,4 @@ public class Solution118 {
         }
         return res;
     }
-
-    public void dfs() {
-
-    }
 }
