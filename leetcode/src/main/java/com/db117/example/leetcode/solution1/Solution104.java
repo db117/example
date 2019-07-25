@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.Util.TreeNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 104. 二叉树的最大深度
@@ -29,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/12
  **/
-@Slf4j
+
 public class Solution104 {
     public int maxDepth(TreeNode root) {
         if (root == null) {

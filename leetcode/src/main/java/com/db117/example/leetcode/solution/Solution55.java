@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个非负整数数组，你最初位于数组的第一个位置。
  * <p>
@@ -27,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/27
  **/
-@Slf4j
+
 public class Solution55 {
     public static void main(String[] args) {
         System.out.println(new Solution55().canJump(new int[]{3, 2, 1, 0, 4}));

@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
@@ -19,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/5/10
  **/
-@Slf4j
+
 public class Solution2 {
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);

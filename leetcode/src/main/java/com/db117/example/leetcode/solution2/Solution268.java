@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution2;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 268. 缺失数字
  * 给定一个包含 0, 1, 2, ..., n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。
@@ -24,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/24/024
  **/
-@Slf4j
+
 public class Solution268 {
     public static void main(String[] args) {
         System.out.println(new Solution268().missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));

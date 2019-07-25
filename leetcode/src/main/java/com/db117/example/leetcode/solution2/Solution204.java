@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution2;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 204. 计数质数
  * 统计所有小于非负整数 n 的质数的数量。
@@ -15,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution204 {
     public static void main(String[] args) {
         System.out.println(new Solution204().countPrimes(1));

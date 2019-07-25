@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定两个二进制字符串，返回他们的和（用二进制表示）。
  * <p>
@@ -23,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/3
  **/
-@Slf4j
+
 public class Solution67 {
     public static void main(String[] args) {
         System.out.println(new Solution67().addBinary("1111", "1111"));

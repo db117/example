@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution3;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 326. 3的幂
  * 给定一个整数，写一个函数来判断它是否是 3 的幂次方。
@@ -32,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution326 {
     public static void main(String[] args) {
         System.out.println(new Solution326().isPowerOfThree1(0));

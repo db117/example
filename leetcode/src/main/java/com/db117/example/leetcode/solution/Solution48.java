@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个 n × n 的二维矩阵表示一个图像。
  * <p>
@@ -51,7 +49,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/24
  **/
-@Slf4j
+
 public class Solution48 {
 
     public void rotate(int[][] matrix) {

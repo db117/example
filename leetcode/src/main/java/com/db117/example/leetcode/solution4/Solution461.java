@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution4;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 461. 汉明距离
  * 两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。
@@ -31,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution461 {
 
     public int hammingDistance(int x, int y) {

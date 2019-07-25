@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。
  * <p>
@@ -48,7 +46,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/3
  **/
-@Slf4j
+
 public class Solution13 {
 
     public static void main(String[] args) {

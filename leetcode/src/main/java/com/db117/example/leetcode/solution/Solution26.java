@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
  * <p>
@@ -45,7 +43,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/12
  **/
-@Slf4j
+
 public class Solution26 {
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) {

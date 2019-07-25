@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
  * <p>
@@ -35,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/5
  **/
-@Slf4j
+
 public class Solution74 {
     public boolean searchMatrix(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {

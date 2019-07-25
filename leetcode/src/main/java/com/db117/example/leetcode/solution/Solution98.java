@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.TreeNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 98. 验证二叉搜索树
@@ -38,7 +37,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/18
  **/
-@Slf4j
+
 public class Solution98 {
     long temp = Long.MIN_VALUE;
 

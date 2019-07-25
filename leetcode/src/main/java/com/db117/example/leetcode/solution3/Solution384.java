@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution3;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.Random;
 
 /**
@@ -30,7 +28,7 @@ import java.util.Random;
  * @author db117
  * @date 2019/7/22/022
  **/
-@Slf4j
+
 public class Solution384 {
     int[] reset;
     int[] shuffle;

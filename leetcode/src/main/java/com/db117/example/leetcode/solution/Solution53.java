@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
  * <p>
@@ -21,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/26
  **/
-@Slf4j
+
 public class Solution53 {
     public static void main(String[] args) {
         System.out.println(new Solution53().maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));

@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
@@ -22,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/8
  **/
-@Slf4j
+
 public class Solution82 {
     public static void main(String[] args) {
         int[] data = new int[]{

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 实现 pow(x, n) ，即计算 x 的 n 次幂函数。
  * <p>
@@ -30,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/24
  **/
-@Slf4j
+
 public class Solution50 {
     public static void main(String[] args) {
         System.out.println(new Solution50().myPow2(2.0, 2));

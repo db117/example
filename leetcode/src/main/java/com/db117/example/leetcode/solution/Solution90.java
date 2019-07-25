@@ -1,6 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Fork;
 
@@ -34,7 +33,7 @@ import java.util.List;
  * @author db117
  * @date 2019/7/9
  **/
-@Slf4j
+
 public class Solution90 {
     public static void main(String[] args) {
         System.out.println(new Solution90().subsetsWithDup(new int[]{

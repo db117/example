@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.Util.TreeNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 108. 将有序数组转换为二叉搜索树
@@ -29,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/18
  **/
-@Slf4j
+
 public class Solution108 {
     public TreeNode sortedArrayToBST(int[] nums) {
         return helper(0, nums.length - 1, nums);

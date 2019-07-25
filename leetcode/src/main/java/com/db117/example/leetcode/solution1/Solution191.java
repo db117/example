@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution1;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 191. 位1的个数
  * <p>
@@ -42,7 +40,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution191 {
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {

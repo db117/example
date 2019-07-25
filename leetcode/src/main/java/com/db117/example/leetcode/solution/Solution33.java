@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
  * <p>
@@ -29,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/16
  **/
-@Slf4j
+
 public class Solution33 {
     public static void main(String[] args) {
         System.out.println(new Solution33().search(new int[]{3, 4, 5, 6, 1, 2}, 2));

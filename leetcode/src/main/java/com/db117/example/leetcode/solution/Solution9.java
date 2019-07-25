@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
  * <p>
@@ -26,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/5/21
  **/
-@Slf4j
+
 public class Solution9 {
     public static void main(String[] args) {
         System.out.println(isPalindrome1(11011));

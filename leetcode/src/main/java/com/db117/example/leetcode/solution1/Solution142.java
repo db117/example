@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 142. 环形链表 II
@@ -47,7 +46,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/18
  **/
-@Slf4j
+
 public class Solution142 {
     public ListNode detectCycle(ListNode head) {
         // 先判断是否是循环链表

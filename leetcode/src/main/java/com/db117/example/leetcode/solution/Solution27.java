@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。
  * <p>
@@ -49,7 +47,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/13
  **/
-@Slf4j
+
 public class Solution27 {
 
     public static void main(String[] args) {

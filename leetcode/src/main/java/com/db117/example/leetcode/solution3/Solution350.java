@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution3;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -35,7 +33,7 @@ import java.util.List;
  * @author db117
  * @date 2019/7/15
  **/
-@Slf4j
+
 public class Solution350 {
     public int[] intersect(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);

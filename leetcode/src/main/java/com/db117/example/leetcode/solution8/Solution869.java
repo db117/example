@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution8;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -47,7 +45,7 @@ import java.util.Set;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution869 {
     public static void main(String[] args) {
         System.out.println(new Solution869().reorderedPowerOf2(563870912));

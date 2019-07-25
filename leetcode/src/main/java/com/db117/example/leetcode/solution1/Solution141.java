@@ -2,7 +2,6 @@ package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.Util.ListNode;
 import com.db117.example.leetcode.Util.ListNodeBuilder;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 141. 环形链表
@@ -47,7 +46,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/18
  **/
-@Slf4j
+
 public class Solution141 {
     public static void main(String[] args) {
         ListNode node = ListNodeBuilder.builder(new int[]{3, 2, 0, -4});

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
  * <p>
@@ -25,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/2
  **/
-@Slf4j
+
 public class Solution64 {
     public static void main(String[] args) {
         System.out.println(new Solution64().minPathSum(new int[][]{

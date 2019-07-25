@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
  * <p>
@@ -25,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/5/19
  **/
-@Slf4j
+
 public class Solution7 {
     public static int reverse(int x) {
         char[] chars = String.valueOf(x).replace("-", "").toCharArray();

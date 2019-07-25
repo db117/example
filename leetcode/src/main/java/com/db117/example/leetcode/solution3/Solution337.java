@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution3;
 
 import com.db117.example.leetcode.Util.TreeNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 337. 打家劫舍 III
@@ -41,7 +40,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/22/022
  **/
-@Slf4j
+
 public class Solution337 {
     public int rob(TreeNode root) {
         if (root == null) {

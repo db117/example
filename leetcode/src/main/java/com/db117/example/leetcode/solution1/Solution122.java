@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution1;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 122. 买卖股票的最佳时机 II
  * <p>
@@ -37,7 +35,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/15
  **/
-@Slf4j
+
 public class Solution122 {
 
     public int maxProfit(int[] prices) {

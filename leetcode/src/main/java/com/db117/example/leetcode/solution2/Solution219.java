@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution2;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,7 +28,7 @@ import java.util.Set;
  * @author db117
  * @date 2019/7/15
  **/
-@Slf4j
+
 public class Solution219 {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         Set<Integer> set = new HashSet<>();

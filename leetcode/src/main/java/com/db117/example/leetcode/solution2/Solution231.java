@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution2;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 231. 2的幂
  * 给定一个整数，编写一个函数来判断它是否是 2 的幂次方。
@@ -28,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution231 {
     public boolean isPowerOfTwo(int n) {
         // 循环平推

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
  * <p>
@@ -21,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/20
  **/
-@Slf4j
+
 public class Solution42 {
     public static void main(String[] args) {
         System.out.println(new Solution42().trap2(new int[]{

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution2;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 260. 只出现一次的数字 III
  * <p>
@@ -23,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/15
  **/
-@Slf4j
+
 public class Solution260 {
     public int[] singleNumber(int[] nums) {
         int[] res = new int[2];

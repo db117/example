@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
  * <p>
@@ -33,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/5/19
  **/
-@Slf4j
+
 public class Solution6 {
     public static String convert(String s, int numRows) {
         int length = s.length();

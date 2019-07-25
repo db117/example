@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 '?' 和 '*' 的通配符匹配。
  * <p>
@@ -55,7 +53,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/20
  **/
-@Slf4j
+
 public class Solution44 {
     public static void main(String[] args) {
         System.out.println(new Solution44().isMatch("aa", "a"));

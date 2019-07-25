@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.Stack;
 
 /**
@@ -25,7 +23,7 @@ import java.util.Stack;
  * @author db117
  * @date 2019/7/9
  **/
-@Slf4j
+
 public class Solution85 {
     public int maximalRectangle(char[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution3;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +22,7 @@ import java.util.Map;
  * @author db117
  * @date 2019/7/16
  **/
-@Slf4j
+
 public class Solution387 {
     public static void main(String[] args) {
         System.out.println(new Solution387().firstUniqChar1("loveleetcode"));

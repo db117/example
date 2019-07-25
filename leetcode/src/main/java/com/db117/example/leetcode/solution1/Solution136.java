@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution1;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 136. 只出现一次的数字
  * <p>
@@ -27,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/15
  **/
-@Slf4j
+
 public class Solution136 {
     public int singleNumber(int[] nums) {
         // 异或,两个相同的数异或为0

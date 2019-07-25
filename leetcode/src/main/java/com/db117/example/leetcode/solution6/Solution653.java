@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution6;
 
 import com.db117.example.leetcode.Util.TreeNode;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +43,7 @@ import java.util.List;
  * @author db117
  * @date 2019/7/16
  **/
-@Slf4j
+
 public class Solution653 {
     public boolean findTarget(TreeNode root, int k) {
         List<Integer> list = new ArrayList<>();

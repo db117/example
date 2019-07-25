@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 编写一个函数来查找字符串数组中的最长公共前缀。
  * <p>
@@ -23,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/3
  **/
-@Slf4j
+
 public class Solution14 {
 
     public static void main(String[] args) {

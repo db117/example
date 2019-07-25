@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。
  * <p>
@@ -36,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/5
  **/
-@Slf4j
+
 public class Solution72 {
     public static void main(String[] args) {
 

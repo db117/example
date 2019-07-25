@@ -2,7 +2,6 @@ package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.Util.TreeNode;
 import com.db117.example.leetcode.Util.TreeNodeUtil;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +33,7 @@ import java.util.Map;
  * @author db117
  * @date 2019/7/12
  **/
-@Slf4j
+
 public class Solution106 {
     public static void main(String[] args) {
         TreeNode treeNode = new Solution106().buildTree(new int[]{

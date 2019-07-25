@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution7;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * \
  * 724. 寻找数组的中心索引
@@ -38,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/25/025
  **/
-@Slf4j
+
 public class Solution724 {
     public static void main(String[] args) {
         System.out.println(new Solution724().pivotIndex1(new int[]{1, 7, 3, 6, 5, 6}));

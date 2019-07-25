@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
  * <p>
@@ -35,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/26
  **/
-@Slf4j
+
 public class Solution52 {
     public static void main(String[] args) {
         System.out.println(new Solution52().totalNQueens(55));

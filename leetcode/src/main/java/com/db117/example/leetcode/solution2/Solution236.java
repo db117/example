@@ -2,7 +2,6 @@ package com.db117.example.leetcode.solution2;
 
 
 import com.db117.example.leetcode.Util.TreeNode;
-import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -42,7 +41,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/14
  **/
-@Slf4j
+
 public class Solution236 {
     TreeNode res;
 

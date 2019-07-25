@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution3;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 342. 4的幂
  * 给定一个整数 (32 位有符号整数)，请编写一个函数来判断它是否是 4 的幂次方。
@@ -24,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution342 {
     public boolean isPowerOfFour(int num) {
         // 转为二进制,100...才位4的幂

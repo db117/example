@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution6;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 678. 有效的括号字符串
  * <p>
@@ -35,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/24/024
  **/
-@Slf4j
+
 public class Solution678 {
     public static void main(String[] args) {
         System.out.println(new Solution678().checkValidString("(()"));

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution1;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.Stack;
 
 /**
@@ -31,7 +29,7 @@ import java.util.Stack;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution155 {
 
     public class MinStack {

@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
@@ -30,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/1
  **/
-@Slf4j
+
 public class Solution61 {
     public static void main(String[] args) {
         int[] data = new int[]{1, 2, 3, 4, 5};

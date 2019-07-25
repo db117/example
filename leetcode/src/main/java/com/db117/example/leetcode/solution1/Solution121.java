@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution1;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 121. 买卖股票的最佳时机
  * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
@@ -29,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/19
  **/
-@Slf4j
+
 public class Solution121 {
     public int maxProfit(int[] prices) {
         int res = 0, min = Integer.MAX_VALUE;

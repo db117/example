@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution2;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 242. 有效的字母异位词
  * 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
@@ -27,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/17
  **/
-@Slf4j
+
 public class Solution242 {
     public static void main(String[] args) {
         System.out.println(new Solution242().isAnagram("rat", "car"));

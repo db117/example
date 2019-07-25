@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
@@ -18,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/10
  **/
-@Slf4j
+
 public class Solution21 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         // 有为空的结束

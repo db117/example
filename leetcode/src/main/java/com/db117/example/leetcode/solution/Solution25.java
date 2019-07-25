@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
@@ -30,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/12
  **/
-@Slf4j
+
 public class Solution25 {
     public static void main(String[] args) {
         Solution25 solution25 = new Solution25();

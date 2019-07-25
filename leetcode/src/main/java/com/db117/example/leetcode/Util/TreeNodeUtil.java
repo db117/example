@@ -1,12 +1,10 @@
 package com.db117.example.leetcode.Util;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * @author db117
  * @date 2019/7/11
  **/
-@Slf4j
+
 public class TreeNodeUtil {
     private TreeNodeUtil() {
     }

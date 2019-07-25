@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution2;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 278. 第一个错误的版本
  * <p>
@@ -28,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/19
  **/
-@Slf4j
+
 public class Solution278 {
     public int firstBadVersion(int n) {
         // 二分

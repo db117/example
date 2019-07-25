@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,7 +47,7 @@ import java.util.Set;
  * @author db117
  * @date 2019/7/5
  **/
-@Slf4j
+
 public class Solution73 {
     public void setZeroes(int[][] matrix) {
         int len1 = matrix.length;

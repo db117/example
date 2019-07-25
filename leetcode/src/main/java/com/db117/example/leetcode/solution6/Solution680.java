@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution6;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 680. 验证回文字符串 Ⅱ
  * <p>
@@ -27,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/17
  **/
-@Slf4j
+
 public class Solution680 {
     public static void main(String[] args) {
         System.out.println(new Solution680().validPalindrome("a"));

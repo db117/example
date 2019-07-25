@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
@@ -21,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/11
  **/
-@Slf4j
+
 public class Solution24 {
 
     public ListNode swapPairs(ListNode head) {

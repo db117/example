@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
  * <p>
@@ -27,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/20
  **/
-@Slf4j
+
 public class Solution43 {
     public static void main(String[] args) {
         System.out.println(new Solution43().multiply("5", "12"));

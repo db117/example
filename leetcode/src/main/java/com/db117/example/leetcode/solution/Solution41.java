@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个未排序的整数数组，找出其中没有出现的最小的正整数。
  * <p>
@@ -25,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/19
  **/
-@Slf4j
+
 public class Solution41 {
     public static void main(String[] args) {
         System.out.println(new Solution41().firstMissingPositive(new int[]{1, 2, 0}));

@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
@@ -22,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/8
  **/
-@Slf4j
+
 public class Solution83 {
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {

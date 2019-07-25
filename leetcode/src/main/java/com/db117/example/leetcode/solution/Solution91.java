@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 一条包含字母 A-Z 的消息通过以下方式进行了编码：
  * <p>
@@ -29,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/10
  **/
-@Slf4j
+
 public class Solution91 {
     public static void main(String[] args) {
         System.out.println(new Solution91().numDecodings("121200326"));

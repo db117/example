@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
@@ -23,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/11
  **/
-@Slf4j
+
 public class Solution23 {
 
     public ListNode mergeKLists(ListNode[] lists) {

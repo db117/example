@@ -2,7 +2,6 @@ package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
 import com.db117.example.leetcode.Util.ListNodeBuilder;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
@@ -22,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/10
  **/
-@Slf4j
+
 public class Solution92 {
     public static void main(String[] args) {
         ListNode node = ListNodeBuilder.builder(new int[]{

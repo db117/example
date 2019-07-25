@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution1;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 190. 颠倒二进制位
  * 颠倒给定的 32 位无符号整数的二进制位。
@@ -38,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/23/023
  **/
-@Slf4j
+
 public class Solution190 {
     // you need treat n as an unsigned value
     public int reverseBits(int n) {

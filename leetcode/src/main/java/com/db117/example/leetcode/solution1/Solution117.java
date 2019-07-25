@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.Util.Node;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 117. 填充每个节点的下一个右侧节点指针 II
@@ -43,7 +42,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/12
  **/
-@Slf4j
+
 public class Solution117 {
     public Node connect(Node root) {
         if (root == null) {

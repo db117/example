@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution2;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.TreeSet;
 
 /**
@@ -30,7 +28,7 @@ import java.util.TreeSet;
  * @author db117
  * @date 2019/7/15
  **/
-@Slf4j
+
 public class Solution220 {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         TreeSet<Integer> treeSet = new TreeSet<>();

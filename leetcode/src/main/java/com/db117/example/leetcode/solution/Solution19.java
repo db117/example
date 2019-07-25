@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
@@ -26,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/10
  **/
-@Slf4j
+
 public class Solution19 {
     public static void main(String[] args) {
 

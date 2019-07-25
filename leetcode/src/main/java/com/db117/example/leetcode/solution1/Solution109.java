@@ -4,7 +4,6 @@ import com.db117.example.leetcode.Util.ListNode;
 import com.db117.example.leetcode.Util.ListNodeBuilder;
 import com.db117.example.leetcode.Util.TreeNode;
 import com.db117.example.leetcode.Util.TreeNodeUtil;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 109. 有序链表转换二叉搜索树
@@ -31,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/19
  **/
-@Slf4j
+
 public class Solution109 {
     public static void main(String[] args) {
         ListNode builder = ListNodeBuilder.builder(new int[]{-10, -3, 0, 5, 9});

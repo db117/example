@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
  * <p>
@@ -18,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/5/13
  **/
-@Slf4j
+
 public class Solution5 {
     public static void main(String[] args) {
         System.out.println(longestPalindrome("aaabaaaa"));

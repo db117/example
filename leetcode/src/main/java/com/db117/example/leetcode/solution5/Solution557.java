@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution5;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 557. 反转字符串中的单词 III
  * 给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。
@@ -19,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/16
  **/
-@Slf4j
+
 public class Solution557 {
     public static void main(String[] args) {
         System.out.println(new Solution557().reverseWords1("Let's take LeetCode contest"));

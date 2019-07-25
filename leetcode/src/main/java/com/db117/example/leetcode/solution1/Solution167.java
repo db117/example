@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution1;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +27,7 @@ import java.util.Map;
  * @author db117
  * @date 2019/7/16
  **/
-@Slf4j
+
 public class Solution167 {
     public int[] twoSum(int[] numbers, int target) {
         int[] res = new int[2];

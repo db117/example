@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
  * <p>
@@ -36,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/19
  **/
-@Slf4j
+
 public class Solution38 {
 
     public static void main(String[] args) {

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
  * <p>
@@ -60,7 +58,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/17
  **/
-@Slf4j
+
 public class Solution36 {
     public boolean isValidSudoku(char[][] board) {
         // 一维保存位置 二维保存数值

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。
  * <p>
@@ -28,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/13
  **/
-@Slf4j
+
 public class Solution29 {
     public static void main(String[] args) {
         System.out.println(new Solution29().divide(Integer.MIN_VALUE, Integer.MIN_VALUE));

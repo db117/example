@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给你一个字符串 S、一个字符串 T，请在字符串 S 里面找出：包含 T 所有字母的最小子串。
  * <p>
@@ -21,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/5
  **/
-@Slf4j
+
 public class Solution76 {
     public static void main(String[] args) {
         System.out.println(new Solution76().minWindow("ADOBECODEBANC", "ABC"));

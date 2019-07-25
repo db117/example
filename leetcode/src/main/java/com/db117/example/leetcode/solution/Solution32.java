@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个只包含 '(' 和 ')' 的字符串，找出最长的包含有效括号的子串的长度。
  * <p>
@@ -23,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/16
  **/
-@Slf4j
+
 public class Solution32 {
     public static void main(String[] args) {
         System.out.println(new Solution32().longestValidParentheses("(())()"));

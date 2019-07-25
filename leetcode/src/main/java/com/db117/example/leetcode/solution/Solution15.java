@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.*;
 
 /**
@@ -20,7 +18,7 @@ import java.util.*;
  * @author db117
  * @date 2019/6/3
  **/
-@Slf4j
+
 public class Solution15 {
     public static void main(String[] args) {
         System.out.println(threeSum(new int[]{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}));

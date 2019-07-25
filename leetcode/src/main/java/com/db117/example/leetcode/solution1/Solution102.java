@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.Util.TreeNode;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ import java.util.List;
  * @author db117
  * @date 2019/7/12
  **/
-@Slf4j
+
 public class Solution102 {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();

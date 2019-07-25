@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
  * <p>
@@ -32,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/5
  **/
-@Slf4j
+
 public class Solution70 {
     public int climbStairs(int n) {
         if (n < 4) {

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution3;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 345. 反转字符串中的元音字母
  * <p>
@@ -25,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/16
  **/
-@Slf4j
+
 public class Solution345 {
     // 元音包括a，e，i，o，u，A，E，I，O，U
 

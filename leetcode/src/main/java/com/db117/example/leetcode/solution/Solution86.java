@@ -2,7 +2,6 @@ package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.ListNode;
 import com.db117.example.leetcode.Util.ListNodeBuilder;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。
@@ -21,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/9
  **/
-@Slf4j
+
 public class Solution86 {
     public static void main(String[] args) {
         int[] data = new int[]{

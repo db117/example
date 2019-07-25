@@ -1,7 +1,6 @@
 package com.db117.example.leetcode.solution2;
 
 import com.db117.example.leetcode.Util.ListNode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 237. 删除链表中的节点
@@ -40,7 +39,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/17
  **/
-@Slf4j
+
 public class Solution237 {
     public void deleteNode(ListNode node) {
         // 用下一个节点的值覆盖当前节点的值

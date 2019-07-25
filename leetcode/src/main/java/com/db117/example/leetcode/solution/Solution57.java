@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -29,7 +27,7 @@ import java.util.List;
  * @author db117
  * @date 2019/6/28
  **/
-@Slf4j
+
 public class Solution57 {
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(new Solution57().insert(new int[][]{

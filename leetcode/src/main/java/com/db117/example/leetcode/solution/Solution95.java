@@ -2,7 +2,6 @@ package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.Util.TreeNode;
 import com.db117.example.leetcode.Util.TreeNodeUtil;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ import java.util.List;
  * @author db117
  * @date 2019/7/11
  **/
-@Slf4j
+
 public class Solution95 {
     public static void main(String[] args) {
         for (TreeNode treeNode : new Solution95().generateTrees(5)) {

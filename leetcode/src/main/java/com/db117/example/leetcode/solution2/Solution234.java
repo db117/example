@@ -2,7 +2,6 @@ package com.db117.example.leetcode.solution2;
 
 import com.db117.example.leetcode.Util.ListNode;
 import com.db117.example.leetcode.Util.ListNodeBuilder;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 234. 回文链表
@@ -26,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/18
  **/
-@Slf4j
+
 public class Solution234 {
     public static void main(String[] args) {
         ListNode node = ListNodeBuilder.builder(new int[]{1, 2, 1});

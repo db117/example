@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 实现 int sqrt(int x) 函数。
  * <p>
@@ -27,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/5
  **/
-@Slf4j
+
 public class Solution69 {
     public static void main(String[] args) {
         System.out.println(new Solution69().mySqrt(1));

@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution5;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 541. 反转字符串 II
  * <p>
@@ -24,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/7/16
  **/
-@Slf4j
+
 public class Solution541 {
     public static void main(String[] args) {
         System.out.println(new Solution541().reverseStr("abcdefgh", 7));

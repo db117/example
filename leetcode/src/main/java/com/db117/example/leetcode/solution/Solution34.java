@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
  * <p>
@@ -25,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author db117
  * @date 2019/6/17
  **/
-@Slf4j
+
 public class Solution34 {
     public int[] searchRange(int[] nums, int target) {
         int[] res = new int[]{-1, -1};

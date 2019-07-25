@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +18,7 @@ import java.util.List;
  * @author db117
  * @date 2019/7/10
  **/
-@Slf4j
+
 public class Solution93 {
 
     public static void main(String[] args) {

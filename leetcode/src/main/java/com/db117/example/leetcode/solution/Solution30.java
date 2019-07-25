@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,7 +35,7 @@ import java.util.Map;
  * @author db117
  * @date 2019/6/13
  **/
-@Slf4j
+
 public class Solution30 {
     public static void main(String[] args) {
         System.out.println(new Solution30().findSubstring("mississippi", new String[]{"is"}));
