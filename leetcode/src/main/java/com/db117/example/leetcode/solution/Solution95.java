@@ -4,9 +4,11 @@ import com.db117.example.leetcode.Util.TreeNode;
 import com.db117.example.leetcode.Util.TreeNodeUtil;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 95. 不同的二叉搜索树 II
  * 给定一个整数 n，生成所有由 1 ... n 为节点所组成的二叉搜索树。
  * <p>
  * 示例:
@@ -39,10 +41,44 @@ import java.util.List;
 
 public class Solution95 {
     public static void main(String[] args) {
-        for (TreeNode treeNode : new Solution95().generateTrees(5)) {
+        for (TreeNode treeNode : new Solution95().generateTrees1(5)) {
             TreeNodeUtil.preorderPrint(treeNode);
             System.out.println("---");
         }
+    }
+
+    public List<TreeNode> generateTrees1(int n) {
+        if (n == 0) {
+            return new ArrayList<>();
+        }
+        return dfs(1, n);
+    }
+
+    public List<TreeNode> dfs(int start, int end) {
+        LinkedList<TreeNode> res = new LinkedList<>();
+        if (start > end) {
+            res.add(null);
+            return res;
+        }
+
+        for (int i = start; i <= end; i++) {
+            // 左边所有可能的根节点
+            List<TreeNode> lefts = dfs(start, i - 1);
+            // 右边所有可能的根节点
+            List<TreeNode> rights = dfs(i + 1, end);
+
+            // 双层循环使当前节点的左右节点覆盖所有可能组合
+            for (TreeNode left : lefts) {
+                for (TreeNode right : rights) {
+                    TreeNode cur = new TreeNode(i);
+                    cur.left = left;
+                    cur.right = right;
+
+                    res.add(cur);
+                }
+            }
+        }
+        return res;
     }
 
     public List<TreeNode> generateTrees(int n) {
