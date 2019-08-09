@@ -1,5 +1,9 @@
 package com.db117.example.leetcode.solution7;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * 705. 设计哈希集合.
  * 不使用任何内建的哈希表库设计一个哈希集合
@@ -36,6 +40,43 @@ package com.db117.example.leetcode.solution7;
  * @date 2019/8/9/009
  **/
 public class Solution705 {
+    class MyHashSet1 {
+        private List<LinkedList<Integer>> table;
+
+        private int size = 200;
+
+        /**
+         * Initialize your data structure here.
+         */
+        public MyHashSet1() {
+            // 初始化
+            table = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                table.add(new LinkedList<>());
+            }
+        }
+
+        public void add(int key) {
+            if (!contains(key)) {
+                // 如果不存在添加
+                table.get(key % size).addLast(key);
+            }
+        }
+
+        public void remove(int key) {
+            // 删除
+            table.get(key % size).removeFirstOccurrence(key);
+        }
+
+        /**
+         * Returns true if this set contains the specified element
+         */
+        public boolean contains(int key) {
+            // 是否存在
+            return table.get(key % size).contains(key);
+        }
+    }
+
     class MyHashSet {
         boolean[] map = new boolean[1000001];
 
