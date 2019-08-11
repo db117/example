@@ -45,6 +45,7 @@ public class Solution599 {
         })));
     }
 
+    // todo 可以优化成一个map,value直接放入和
     public String[] findRestaurant(String[] list1, String[] list2) {
         Set<String> res = new HashSet<>();
         // 把数据放入map
