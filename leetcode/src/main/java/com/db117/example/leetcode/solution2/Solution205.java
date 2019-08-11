@@ -1,9 +1,7 @@
 package com.db117.example.leetcode.solution2;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 205. 同构字符串
@@ -47,40 +45,26 @@ public class Solution205 {
         if (s.length() != t.length()) {
             return false;
         }
-        Map<Character, Set<Integer>> map = toMap(s);
-        Map<Character, Set<Integer>> map1 = toMap(t);
+        // 第一个字符串->第二个字符串
+        Map<Character, Character> map = new HashMap<>();
 
         for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            char c1 = t.charAt(i);
-            Set<Integer> set = map.get(c);
-            Set<Integer> set1 = map1.get(c1);
-            // 对比当前位置的相同位置
-            if (!set.equals(set1)) {
-                return false;
+            if (map.containsKey(s.charAt(i))) {
+                if (map.get(s.charAt(i)) != t.charAt(i)) {
+                    // 如果s有,但不等于t
+                    return false;
+                }
+            } else {
+                if (map.containsValue(t.charAt(i))) {
+                    // s没有,t有
+                    return false;
+                }
+                // 放入缓存
+                map.put(s.charAt(i), t.charAt(i));
             }
         }
+
         return true;
     }
 
-    public Map<Character, Set<Integer>> toMap(String s) {
-        Map<Character, Set<Integer>> map = new HashMap<>();
-        char[] chars = s.toCharArray();
-
-        for (int i = 0; i < chars.length; i++) {
-            // 找到第一个字符串的所以位置
-            char c = chars[i];
-            if (map.containsKey(c)) {
-                // 已经存在则直接添加到set
-                map.get(c).add(i);
-            } else {
-                // 不存在则新建一个set
-                HashSet<Integer> set = new HashSet<>();
-                set.add(i);
-                map.put(c, set);
-            }
-        }
-
-        return map;
-    }
 }
