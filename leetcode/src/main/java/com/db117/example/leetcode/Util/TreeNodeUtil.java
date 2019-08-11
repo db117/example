@@ -1,5 +1,8 @@
 package com.db117.example.leetcode.Util;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * @author db117
  * @date 2019/7/11
@@ -7,6 +10,49 @@ package com.db117.example.leetcode.Util;
 
 public class TreeNodeUtil {
     private TreeNodeUtil() {
+    }
+
+    /**
+     * 构建二叉树
+     *
+     * @param data 数组
+     */
+    public static TreeNode build(Integer[] data) {
+        Deque<TreeNode> deque = new LinkedList<TreeNode>();
+
+        TreeNode root = new TreeNode(data[0]);
+        deque.offerFirst(root);
+
+        int index = 1;
+        while (!deque.isEmpty()) {
+            int size = deque.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode first = deque.pollFirst();
+
+                // 构建左节点
+                first.left = data[index] == null ? null : new TreeNode(data[index]);
+                index++;
+                if (index >= data.length) {
+                    return root;
+                }
+                // 加入到栈
+                if (first.left != null) {
+                    deque.offerLast(first.left);
+                }
+
+                // 构建右节点
+                first.right = data[index] == null ? null : new TreeNode(data[index]);
+                index++;
+                if (index >= data.length) {
+                    return root;
+                }
+                // 加入到栈
+                if (first.right != null) {
+                    deque.offerLast(first.right);
+                }
+            }
+        }
+        return root;
     }
 
     /**
