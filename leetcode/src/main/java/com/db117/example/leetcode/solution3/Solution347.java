@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution3;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * 347. 前 K 个高频元素
@@ -26,7 +26,29 @@ import java.util.List;
  * @author 117
  */
 public class Solution347 {
+    public static void main(String[] args) {
+        System.out.println(new Solution347().topKFrequent(new int[]{
+                1,1,1,2,2,3
+        },2));
+    }
     public List<Integer> topKFrequent(int[] nums, int k) {
-        return null;
+        Map<Integer, Integer> map = new HashMap<>();
+        // 把数组放入到map中
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        // 设置优先队列排序规则
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.comparingInt(map::get).reversed());
+        // 放入优先队列
+        queue.addAll(map.keySet());
+
+        // 取队列的前k个数字
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+            res.add(queue.poll());
+        }
+
+        return res;
     }
 }
