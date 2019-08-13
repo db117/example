@@ -28,25 +28,31 @@ package com.db117.example.leetcode.solution;
 
 public class Solution69 {
     public static void main(String[] args) {
-        System.out.println(new Solution69().mySqrt(1));
+        System.out.println(new Solution69().mySqrt(2147395599));
     }
 
     public int mySqrt(int x) {
-        // 左右位置
-        long left = 0;
-        long right = x / 2 + 1;
+        if (x == 0) {
+            return 0;
+        }
+        long left = 1;
+        long right = x / 2;
+
         while (left < right) {
-            // 二分
-            long mid = (right + left) / 2 + 1;
-            long s = mid * mid;
-            if (s == x) {
+            // 右中位数
+            long mid = (left + right + 1) >> 1;
+//            System.out.println(String.format("left->%d,right->%d,mid->%d", left, right, mid));
+            long temp = mid * mid;
+            if (temp == x) {
                 return (int) mid;
-            } else if (s < x) {
+            } else if (temp < x) {
                 left = mid;
             } else {
+                // 舍去右边界
                 right = mid - 1;
             }
         }
+
         return (int) left;
     }
 }
