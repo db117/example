@@ -1,7 +1,9 @@
 package com.db117.example.leetcode.solution;
 
+import java.util.Arrays;
+
 /**
- * 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
+ * 34.给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
  * <p>
  * 你的算法时间复杂度必须是 O(log n) 级别。
  * <p>
@@ -25,7 +27,55 @@ package com.db117.example.leetcode.solution;
  **/
 
 public class Solution34 {
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(new Solution34().searchRange(new int[]{
+                5, 7, 7, 8, 8, 10
+        }, 6)));
+    }
+
     public int[] searchRange(int[] nums, int target) {
+        int[] res = new int[]{-1, -1};
+        if (nums.length == 0) {
+            return res;
+        }
+        int left = 0, right = nums.length - 1;
+
+        // 找最左边的
+        while (left < right) {
+            int mid = left + ((right - left) >> 1);
+
+            if (nums[mid] == target || nums[mid] > target) {
+                // 在左边或者找到继续往左边找
+                right = mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            }
+        }
+        if (nums[left] != target) {
+            // 没有找到
+            return res;
+        }
+        res[0] = left;
+
+        // 找最右边
+        right = nums.length - 1;
+        while (left < right) {
+            int mid = left + ((right - left + 1) >> 1);
+
+            if (nums[mid] == target || nums[mid] < target) {
+                // 找到继续往右边找
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+
+        res[1] = right;
+        return res;
+    }
+
+    public int[] searchRange1(int[] nums, int target) {
         int[] res = new int[]{-1, -1};
         int left = 0, right = nums.length - 1;
         // 二分查找
