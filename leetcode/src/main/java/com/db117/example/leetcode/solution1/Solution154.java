@@ -31,7 +31,34 @@ package com.db117.example.leetcode.solution1;
  * @date 2019/8/13/013
  */
 public class Solution154 {
+    public static void main(String[] args) {
+        System.out.println(new Solution154().findMin(new int[]{
+                10, 10, 10, 10, 1, 10
+        }));
+    }
+
     public int findMin(int[] nums) {
-        return 0;
+        // 没有发生旋转
+        int num = nums[0];
+        if (num < nums[nums.length - 1]) {
+            return num;
+        }
+        int left = 0, right = nums.length - 1;
+
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            int temp = nums[mid];
+            if (nums[right] > temp) {
+                // 说明旋转点在左边
+                right = mid;
+            } else if (nums[right] < temp) {
+                // 旋转点在右边
+                left = mid + 1;
+            } else {
+                // 如果相等,则只能一步一步移动
+                right--;
+            }
+        }
+        return nums[left];
     }
 }
