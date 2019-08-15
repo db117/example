@@ -33,6 +33,7 @@ public class Solution4 {
         System.out.println(findMedianSortedArrays(nums1, nums2));
     }
 
+    // todo 二分优化
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int[] ints = Arrays.copyOf(nums1, nums1.length + nums2.length);
         System.arraycopy(nums2, 0, ints, nums1.length, nums2.length);
