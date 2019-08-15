@@ -2,8 +2,7 @@ package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.Util.TreeNode;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 173. 二叉搜索树迭代器
@@ -52,11 +51,11 @@ public class Solution173 {
      * }
      */
     class BSTIterator {
-        Deque<TreeNode> deque;
+        // TODO 不上O(h)的  使用莫里斯遍历的空间o(1)的解法
+        Stack<Integer> stack = new Stack<>();
 
         public BSTIterator(TreeNode root) {
             // 中序遍历有序
-            deque = new LinkedList<>();
             helper(root);
         }
 
@@ -64,24 +63,24 @@ public class Solution173 {
             if (root == null) {
                 return;
             }
-            // 中序遍历
-            helper(root.left);
-            deque.offer(root);
+            // 反着中序遍历  右中左
             helper(root.right);
+            stack.push(root.val);
+            helper(root.left);
         }
 
         /**
          * @return the next smallest number
          */
         public int next() {
-            return deque.poll().val;
+            return stack.pop();
         }
 
         /**
          * @return whether we have a next smallest number
          */
         public boolean hasNext() {
-            return !deque.isEmpty();
+            return !stack.isEmpty();
         }
     }
 
