@@ -1,6 +1,8 @@
 package com.db117.example.leetcode.solution4;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * 451. 根据字符出现频率排序
@@ -50,7 +52,31 @@ import java.util.*;
 public class Solution451 {
 
     public static void main(String[] args) {
-        System.out.println(new Solution451().frequencySort("Aabb"));
+        System.out.println(new Solution451().frequencySort1("Aabb"));
+    }
+
+    public String frequencySort1(String s) {
+        // 记录每个字符出现的次数
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        // 利用堆排序
+        PriorityQueue<Map.Entry<Character, Integer>> queue = new PriorityQueue<>((o1, o2) ->
+                o2.getValue() - o1.getValue());
+        queue.addAll(map.entrySet());
+
+        StringBuilder stringBuilder = new StringBuilder();
+        int size = queue.size();
+        for (int i = 0; i < size; i++) {
+            Map.Entry<Character, Integer> entry = queue.poll();
+            // 拼接字符串
+            stringBuilder.append(IntStream.range(0, entry.getValue())
+                    .mapToObj(j -> String.valueOf(entry.getKey()))
+                    .collect(Collectors.joining()));
+        }
+        return stringBuilder.toString();
     }
 
     public String frequencySort(String s) {
