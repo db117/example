@@ -32,7 +32,26 @@ public class Solution279 {
         System.out.println(new Solution279().numSquares(12));
     }
 
+    // 动态规划
     public int numSquares(int n) {
+        int[] dp = new int[n + 1];
+        for (int i = 0; i < dp.length; i++) {
+            // 每一个数字的最大值为其本身
+            dp[i] = i;
+        }
+
+        // 第一个数为一不需要计算
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j * j <= i; j++) {
+                // i-j*j 为减去平方数后需要几个数字
+                dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
+            }
+        }
+        return dp[n];
+    }
+
+    // 广度优先
+    public int numSquares1(int n) {
         if (n < 4) {
             return n;
         }
