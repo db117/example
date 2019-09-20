@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution4;
 
-import com.db117.example.leetcode.Util.TreeNode;
-import com.db117.example.leetcode.Util.TreeNodeUtil;
+import com.db117.example.leetcode.util.TreeNode;
+import com.db117.example.leetcode.util.TreeNodeUtil;
 
 /**
  * 450. 删除二叉搜索树中的节点

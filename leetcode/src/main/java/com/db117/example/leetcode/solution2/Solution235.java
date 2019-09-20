@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution2;
 
-import com.db117.example.leetcode.Util.TreeNode;
+import com.db117.example.leetcode.util.TreeNode;
 
 /**
  * 235. 二叉搜索树的最近公共祖先

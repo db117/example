@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution1;
 
-import com.db117.example.leetcode.Util.TreeNode;
+import com.db117.example.leetcode.util.TreeNode;
 
 import java.util.Stack;
 

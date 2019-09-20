@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution1;
 
-import com.db117.example.leetcode.Util.TreeNode;
+import com.db117.example.leetcode.util.TreeNode;
 
 /**
  * 101. 对称二叉树

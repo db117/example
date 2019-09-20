@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution;
 
-import com.db117.example.leetcode.Util.ListNode;
-import com.db117.example.leetcode.Util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNode;
+import com.db117.example.leetcode.util.ListNodeBuilder;
 
 /**
  * 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。

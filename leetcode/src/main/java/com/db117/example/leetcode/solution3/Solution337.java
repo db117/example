@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution3;
 
-import com.db117.example.leetcode.Util.TreeNode;
+import com.db117.example.leetcode.util.TreeNode;
 
 /**
  * 337. 打家劫舍 III

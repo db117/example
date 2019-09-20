@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution;
 
-import com.db117.example.leetcode.Util.ListNode;
+import com.db117.example.leetcode.util.ListNode;
 
 /**
  * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。

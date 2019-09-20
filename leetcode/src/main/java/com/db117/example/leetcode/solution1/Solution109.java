@@ -1,9 +1,9 @@
 package com.db117.example.leetcode.solution1;
 
-import com.db117.example.leetcode.Util.ListNode;
-import com.db117.example.leetcode.Util.ListNodeBuilder;
-import com.db117.example.leetcode.Util.TreeNode;
-import com.db117.example.leetcode.Util.TreeNodeUtil;
+import com.db117.example.leetcode.util.ListNode;
+import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.TreeNode;
+import com.db117.example.leetcode.util.TreeNodeUtil;
 
 /**
  * 109. 有序链表转换二叉搜索树

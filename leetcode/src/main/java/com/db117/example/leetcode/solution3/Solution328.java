@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution3;
 
-import com.db117.example.leetcode.Util.ListNode;
-import com.db117.example.leetcode.Util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNode;
+import com.db117.example.leetcode.util.ListNodeBuilder;
 
 /**
  * 328. 奇偶链表

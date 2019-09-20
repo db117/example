@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution;
 
-import com.db117.example.leetcode.Util.ListNode;
+import com.db117.example.leetcode.util.ListNode;
 
 /**
  * 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 

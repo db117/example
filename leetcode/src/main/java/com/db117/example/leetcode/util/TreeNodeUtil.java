@@ -1,4 +1,4 @@
-package com.db117.example.leetcode.Util;
+package com.db117.example.leetcode.util;
 
 import java.util.Deque;
 import java.util.LinkedList;

@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution1;
 
-import com.db117.example.leetcode.Util.Node;
+import com.db117.example.leetcode.util.Node;
 
 /**
  * 117. 填充每个节点的下一个右侧节点指针 II

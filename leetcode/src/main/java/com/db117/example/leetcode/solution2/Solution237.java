@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution2;
 
-import com.db117.example.leetcode.Util.ListNode;
+import com.db117.example.leetcode.util.ListNode;
 
 /**
  * 237. 删除链表中的节点

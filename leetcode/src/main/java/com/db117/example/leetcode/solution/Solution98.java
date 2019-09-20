@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution;
 
-import com.db117.example.leetcode.Util.TreeNode;
+import com.db117.example.leetcode.util.TreeNode;
 
 /**
  * 98. 验证二叉搜索树

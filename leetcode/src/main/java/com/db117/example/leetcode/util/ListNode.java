@@ -1,4 +1,4 @@
-package com.db117.example.leetcode.Util;
+package com.db117.example.leetcode.util;
 
 /**
  * 公用链表

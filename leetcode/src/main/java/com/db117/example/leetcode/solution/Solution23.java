@@ -1,6 +1,6 @@
 package com.db117.example.leetcode.solution;
 
-import com.db117.example.leetcode.Util.ListNode;
+import com.db117.example.leetcode.util.ListNode;
 
 /**
  * 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
