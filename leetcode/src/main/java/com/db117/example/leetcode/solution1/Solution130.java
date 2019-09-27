@@ -34,10 +34,12 @@ import java.util.Arrays;
 public class Solution130 {
     public static void main(String[] args) {
         char[][] board = new char[][]{
-                {'X', 'X', 'X', 'X'},
-                {'O', 'O', 'X', 'X'},
-                {'X', 'X', 'O', 'X'},
-                {'X', 'X', 'X', 'X'}
+                {'X', 'O', 'X', 'X'},
+                {'O', 'X', 'O', 'X'},
+                {'X', 'O', 'X', 'O'},
+                {'O', 'X', 'O', 'X'},
+                {'X', 'O', 'X', 'O'},
+                {'O', 'X', 'O', 'X'}
 
         };
 
@@ -100,7 +102,7 @@ public class Solution130 {
     }
 
     int node(int i, int j) {
-        return i * row + j;
+        return i * col + j;
     }
 
     class UnionFind {
