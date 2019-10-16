@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution1;
 
 /**
- * 176. 第二高的薪水
+ * 175. 组合两个表
  * SQL架构
  * 表1: Person
  * <p>
