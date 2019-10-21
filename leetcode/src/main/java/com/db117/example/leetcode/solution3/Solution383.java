@@ -23,7 +23,7 @@ package com.db117.example.leetcode.solution3;
  */
 public class Solution383 {
     public static void main(String[] args) {
-        System.out.println(new Solution383().canConstruct("ab", "abb"));
+        System.out.println(new Solution383().canConstruct("aba", "abb"));
     }
 
     public boolean canConstruct(String ransomNote, String magazine) {
@@ -31,23 +31,19 @@ public class Solution383 {
             return false;
         }
 
-        // 统计两个字符串,字符出现的次数
-        int[] nums1 = new int[26];
-        int[] nums2 = new int[26];
-        for (int i = 0; i < ransomNote.length(); i++) {
-            nums1[ransomNote.charAt(i) - 'a']++;
-        }
-
+        // 统计杂志字符出现的次数
+        int[] ints = new int[26];
         for (int i = 0; i < magazine.length(); i++) {
-            nums2[magazine.charAt(i) - 'a']++;
+            ints[magazine.charAt(i) - 'a']++;
         }
 
-        for (int i = 0; i < 26; i++) {
-            // 当赎金出现的次数大于杂志的情况下,就不符合
-            if (nums1[i] > nums2[i]) {
+        for (int i = 0; i < ransomNote.length(); i++) {
+            // 从杂志中拿出数字
+            if (--ints[ransomNote.charAt(i) - 'a'] < 0) {
                 return false;
             }
         }
+
         return true;
     }
 }
