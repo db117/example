@@ -31,6 +31,7 @@
         <cglib.version>3.2.12</cglib.version>
         <poi.version>4.1.0</poi.version>
         <jmh.version>1.21</jmh.version>
+        <lucene.version>8.2.0</lucene.version>
 
         <example.version>1.0-SNAPSHOT</example.version>
         <maven.compiler.source>1.8</maven.compiler.source>
