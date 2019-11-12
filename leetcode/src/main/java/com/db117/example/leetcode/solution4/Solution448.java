@@ -36,6 +36,24 @@ public class Solution448 {
 
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> res = new ArrayList<>();
+        // 把能找到位置的数组设置为负数
+        for (int num : nums) {
+            int i = Math.abs(num) - 1;
+            nums[i] = -Math.abs(nums[i]);
+        }
+
+        // 数字依旧为正数时,说明没有数字指向当前位置
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                res.add(i + 1);
+            }
+        }
+
+        return res;
+    }
+
+    public List<Integer> findDisappearedNumbers1(int[] nums) {
+        List<Integer> res = new ArrayList<>();
         Arrays.sort(nums);
         // 数组索引
         int i = 0;
