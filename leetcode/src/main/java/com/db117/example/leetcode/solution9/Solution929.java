@@ -1,6 +1,8 @@
 package com.db117.example.leetcode.solution9;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 929. 独特的电子邮件地址
@@ -43,28 +45,48 @@ import java.util.Arrays;
 public class Solution929 {
     public static void main(String[] args) {
         System.out.println(new Solution929().numUniqueEmails(new String[]{
-                "fg.r.u.uzj+o.pw@kziczvh.com",
-                "r.cyo.g+d.h+b.ja@tgsg.z.com",
-                "fg.r.u.uzj+o.f.d@kziczvh.com",
-                "r.cyo.g+ng.r.iq@tgsg.z.com",
-                "fg.r.u.uzj+lp.k@kziczvh.com",
-                "r.cyo.g+n.h.e+n.g@tgsg.z.com",
-                "fg.r.u.uzj+k+p.j@kziczvh.com",
-                "fg.r.u.uzj+w.y+b@kziczvh.com",
-                "r.cyo.g+x+d.c+f.t@tgsg.z.com",
-                "r.cyo.g+x+t.y.l.i@tgsg.z.com",
-                "r.cyo.g+brxxi@tgsg.z.com",
-                "r.cyo.g+z+dr.k.u@tgsg.z.com",
-                "r.cyo.g+d+l.c.n+g@tgsg.z.com",
-                "fg.r.u.uzj+vq.o@kziczvh.com",
-                "fg.r.u.uzj+uzq@kziczvh.com",
-                "fg.r.u.uzj+mvz@kziczvh.com",
-                "fg.r.u.uzj+taj@kziczvh.com",
-                "fg.r.u.uzj+fek@kziczvh.com"
+                "test.email+alex@leetcode.com", "test.email@leetcode.com"
         }));
     }
 
     public int numUniqueEmails(String[] emails) {
+        Set<String> set = new HashSet<>();
+        StringBuilder builder = new StringBuilder();
+        for (String email : emails) {
+            // 状态机
+            // + 0->1
+            // @ 1->2
+            int flag = 0;
+            for (char c : email.toCharArray()) {
+                if (flag == 0 && c == '+') {
+                    flag = 1;
+                }
+                if (flag != 2 && c == '@') {
+                    flag = 2;
+                }
+
+                // 状态为1则不进行操作
+                switch (flag) {
+                    case 0:
+                        if (c != '.') {
+                            // 过滤 .
+                            builder.append(c);
+                        }
+                        break;
+                    case 2:
+                        builder.append(c);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            set.add(builder.toString());
+            builder.setLength(0);
+        }
+        return set.size();
+    }
+
+    public int numUniqueEmails1(String[] emails) {
         return (int) Arrays.stream(emails)
                 .map(StringBuilder::new)
                 .map(email -> {
