@@ -52,10 +52,32 @@ import java.util.Stack;
  */
 public class Solution1021 {
     public static void main(String[] args) {
-        System.out.println(new Solution1021().removeOuterParentheses("()()"));
+        System.out.println(new Solution1021().removeOuterParentheses("(()())(())(()(()))"));
     }
 
     public String removeOuterParentheses(String S) {
+        StringBuilder ans = new StringBuilder();
+        int sum = 0;
+        for (char c : S.toCharArray()) {
+            if (c == '(') {
+                sum++;
+                if (sum != 1) {
+                    // 不是最外层的左括号
+                    ans.append(c);
+                }
+            } else {
+                sum--;
+                if (sum != 0) {
+                    // 不是最外层的右括号
+                    ans.append(c);
+                }
+            }
+        }
+
+        return ans.toString();
+    }
+
+    public String removeOuterParentheses1(String S) {
         StringBuilder builder = new StringBuilder(S);
         Stack<Integer> stack = new Stack<>();
         int length = builder.length();
