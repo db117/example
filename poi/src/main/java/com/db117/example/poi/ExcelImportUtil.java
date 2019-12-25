@@ -135,7 +135,7 @@ public class ExcelImportUtil {
     /**
      * 解析Excel,并关闭流
      */
-    public void process() {
+    private void process() {
         try {
             // 只读字符表
             ReadOnlySharedStringsTable strings = new ReadOnlySharedStringsTable(this.xlsxPackage);
@@ -214,7 +214,7 @@ public class ExcelImportUtil {
     /**
      * 数据处理
      */
-    private class SimpleSheetContentsHandler implements SheetContentsHandler {
+    private static class SimpleSheetContentsHandler implements SheetContentsHandler {
         /**
          * 当前行号
          */
