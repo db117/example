@@ -1,4 +1,4 @@
-package com.db117.example.leetcode.solution11;
+package com.db117.example.leetcode.solution12;
 
 import java.util.concurrent.Semaphore;
 
