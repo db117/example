@@ -1,4 +1,4 @@
-package com.db117.example.leetcode;
+package com.db117.example.leetcode.Solution53;
 
 /**
  * 5303. 解码字母到整数映射
