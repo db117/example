@@ -44,30 +44,35 @@ import java.util.Arrays;
 public class LCP2 {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(new LCP2().fraction(new int[]{
-                3, 2, 0, 2
+                2147483647
         })));
     }
 
     public int[] fraction(int[] cont) {
         int index = cont.length - 1;
+        if (index == 0) {
+            return new int[]{1, cont[0]};
+        }
         // 分子,分母
         int top = 1, down = cont[index--];
-        while (index >= 0) {
-            int num = cont[index--];
-            if (num == 0) {
-                // 加的值为0,则结果为分母
-                top = down;
-                down = 1;
-            } else {
-                down = top + down * num;
-                top = 1;
-            }
+        while (index > 0) {
+            int temp = down;
+            // 1除以一个分数,则交换分子分母
+            down = top + down * cont[index--];
+            top = temp;
         }
-        return new int[]{top, down};
+        // 最后一个数字,不交换分子分母
+        top = top + down * cont[index];
+        // 最大公约数
+        int helper = helper(top, down);
+        return new int[]{top / helper, down / helper};
     }
 
-    private double helper(int num) {
-
-        return 0d;
+    public int helper(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return helper(b, a % b);
     }
+
 }
