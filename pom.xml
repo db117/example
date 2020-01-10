@@ -25,13 +25,13 @@
         <hutool.version>5.1.0</hutool.version>
         <guava.version>28.1-jre</guava.version>
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
-        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
         <druid.version>1.1.21</druid.version>
         <fastjson.version>1.2.62</fastjson.version>
         <cglib.version>3.2.12</cglib.version>
         <poi.version>4.1.1</poi.version>
         <jmh.version>1.22</jmh.version>
-        <lucene.version>8.3.1</lucene.version>
+        <lucene.version>8.4.0</lucene.version>
 
         <example.version>1.0-SNAPSHOT</example.version>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -155,4 +155,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>huaweicloud</id>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+        </repository>
+        <repository>
+            <id>aliyun</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
+
 </project>
