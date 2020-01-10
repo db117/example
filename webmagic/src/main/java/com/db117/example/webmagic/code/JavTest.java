@@ -30,8 +30,8 @@ public class JavTest implements PageProcessor {
 
     public static void main(String[] args) {
         Spider.create(new JavTest())
-                .addUrl("https://www.seedmm.co/star/pdb")
-                .addPipeline(new FileUpdate("向井藍"))
+                .addUrl("https://www.busdmm.cloud/star/tyv")
+                .addPipeline(new FileUpdate("深田咏美"))
                 .addPipeline(new ConsolePipeline())
                 .run();
 
