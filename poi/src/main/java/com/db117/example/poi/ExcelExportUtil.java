@@ -35,7 +35,13 @@ import java.util.Map;
 public class ExcelExportUtil {
     private static ThreadLocal<ExportObject> threadLocal = new ThreadLocal<>();
 
-
+    /**
+     * 构建导出对象
+     *
+     * @param file        末班文件
+     * @param objectKey   对象key对应得列数(0开始)
+     * @param sheetMaxRow 单sheet大小(2-100W)
+     */
     @SneakyThrows({IOException.class})
     public static void build(File file, String[] objectKey, int sheetMaxRow) {
         if (sheetMaxRow > 1000000 || sheetMaxRow < 2) {
@@ -147,26 +153,41 @@ public class ExcelExportUtil {
             if (o == null) {
                 continue;
             }
-
-            // 根据类型处理数据
-            if (o instanceof Number) {
-                cell.setCellValue(((Number) o).doubleValue());
-            } else if (o instanceof Date) {
-                cell.setCellValue((Date) o);
-            } else if (o instanceof LocalDateTime) {
-                cell.setCellValue((LocalDateTime) o);
-            } else if (o instanceof LocalDate) {
-                cell.setCellValue((LocalDate) o);
-            } else if (o instanceof Boolean) {
-                cell.setCellValue((Boolean) o);
-            } else if (o instanceof Calendar) {
-                cell.setCellValue((Calendar) o);
-            } else {
-                cell.setCellValue(new XSSFRichTextString(o.toString()));
-            }
+            setValue(o, cell);
         }
-
         exportObject.rowNum++;
+    }
+
+    /**
+     * 设置单元格值
+     *
+     * @param o    值对象
+     * @param cell Excel单元格对象
+     */
+    private static void setValue(Object o, SXSSFCell cell) {
+        // 根据类型处理数据
+        switch (o.getClass().getName()) {
+            case "java.lang.Number":
+                cell.setCellValue(((Number) o).doubleValue());
+                break;
+            case "java.util.Date":
+                cell.setCellValue((Date) o);
+                break;
+            case "java.time.LocalDateTime":
+                cell.setCellValue((LocalDateTime) o);
+                break;
+            case "java.time.LocalDate":
+                cell.setCellValue((LocalDate) o);
+                break;
+            case "java.lang.Boolean":
+                cell.setCellValue((Boolean) o);
+                break;
+            case "java.util.Calendar":
+                cell.setCellValue((Calendar) o);
+                break;
+            default:
+                cell.setCellValue(new XSSFRichTextString(o.toString()));
+        }
     }
 
     /**
@@ -179,15 +200,19 @@ public class ExcelExportUtil {
         if (exportObject.rowNum != 0) {
             return workbook.getSheetAt(exportObject.currentSheetIndex);
         }
-        // 只有当前行为0时需要创建
-
-        // 创建sheet
-        SXSSFSheet sheet = workbook.createSheet();
+        SXSSFSheet sheet = null;
+        if (exportObject.currentSheetIndex != 0) {
+            // 需要创建sheet
+            sheet = workbook.createSheet();
+        }
+        if (exportObject.currentSheetIndex == 0) {
+            // 第一个sheet直接获取
+            sheet = workbook.getSheetAt(0);
+        }
         // 设置列宽
         for (int i = 0; i < exportObject.colWidth.length; i++) {
             sheet.setColumnWidth(i, exportObject.colWidth[i]);
         }
-
         // 第一行写入头
         writeTitle();
         return sheet;
