@@ -30,19 +30,21 @@ public class JavBus {
     /**
      * 进行页面后缀获取所有磁力
      *
-     * @param suffix  页面后缀(https://www.busdmm.cloud/star/81j > 81j)
+     * @param suffix  页面后缀(https://www.busdmm.cloud/star/81j > star/81j)
      * @param name    名字
      * @param dirPath 文件夹地址
      */
     @SneakyThrows
     public void process(String suffix, String name, String dirPath) {
-        List<String> fhs = FhSearch.search(baseUrl + "star/" + suffix);
+        List<String> hrefs = FhSearch.search(baseUrl + suffix);
         // 存放番号的队列
         LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-        for (String fh : fhs) {
-            queue.offer(fh);
+        for (String fh : hrefs) {
+            if (StrUtil.isNotBlank(fh)) {
+                queue.offer(fh);
+            }
         }
-        log.info("共{}个", fhs.size());
+        log.info("共{}个", hrefs.size());
         // 执行线程池
         int threadSize = 8;
         ThreadPoolExecutor executor = new ThreadPoolExecutor(threadSize
@@ -63,7 +65,7 @@ public class JavBus {
         }
 
         while (executor.getActiveCount() != 0) {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         }
     }
 
@@ -87,13 +89,16 @@ public class JavBus {
         @Override
         public void run() {
             while (!queue.isEmpty()) {
-                String fh = queue.poll();
+                String href = queue.poll();
+                if (href == null) {
+                    break;
+                }
                 try {
                     log.info("剩余{}个", queue.size());
-                    getMagent(fh);
-                } catch (IOException e) {
+                    getMagent(href);
+                } catch (Exception e) {
                     log.error(e.getMessage(), e);
-                    writeToFile(fh, notFindFhPath);
+                    writeToFile(href, notFindFhPath);
                 }
             }
         }
@@ -101,19 +106,18 @@ public class JavBus {
         /**
          * 查询磁力
          *
-         * @param fh 番号
+         * @param href 番号
          */
-        private void getMagent(String fh) throws IOException {
-            log.info("解析番号{}", fh);
-            String pageUrl = baseUrl + fh;
-            Document document = Jsoup.connect(pageUrl).get();
+        private void getMagent(String href) throws IOException {
+            log.info("解析页面{}", href);
+            Document document = Jsoup.connect(href).get();
             // 获取ajax参数
             String var = document.select("body > script:nth-child(9)").html();
 
             // 调用查询番号接口
             String magentUrl = baseUrl + "ajax/uncledatoolsbyajax.php";
             HttpRequest request = HttpUtil.createGet(magentUrl);
-            request.header(header(magentUrl)).timeout(5000);
+            request.header(header(magentUrl)).timeout(10000);
             HttpResponse response = request.form(param(var)).execute();
             // 查找磁力
             String magent = processMagent(response.body());
@@ -249,11 +253,11 @@ public class JavBus {
         private static List<String> process(Elements elements) {
             List<String> res = new ArrayList<>(30);
             for (int i = 1; i <= 30; i++) {
-                String fh = elements.select("div:nth-child(" + i + ") > a > div.photo-info > span > date:nth-child(3)").html();
-                if (StrUtil.isBlank(fh)) {
+                String href = elements.select("div:nth-child(" + i + ") > a").attr("href");
+                if (StrUtil.isBlank(href)) {
                     continue;
                 }
-                res.add(fh);
+                res.add(href);
             }
             return res;
         }
