@@ -6,6 +6,11 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
+import com.google.common.eventbus.AllowConcurrentEvents;
+import com.google.common.eventbus.AsyncEventBus;
+import com.google.common.eventbus.Subscribe;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
@@ -19,6 +24,7 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @author db117
@@ -26,6 +32,27 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class JavBus {
     private static String baseUrl = "https://www.busdmm.cloud/";
+    /**
+     * 执行线程池
+     */
+    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors()
+            , Runtime.getRuntime().availableProcessors()
+            , 0L
+            , TimeUnit.MILLISECONDS
+            , new LinkedBlockingQueue<>()
+            , new NamedThreadFactory("jav", false));
+
+    /**
+     * 进行页面后缀获取所有磁力
+     * 获取所有
+     *
+     * @param suffix  页面后缀(https://www.busdmm.cloud/star/81j > star/81j)
+     * @param name    名字
+     * @param dirPath 文件夹地址
+     */
+    public static void process(String suffix, String name, String dirPath) {
+        process(suffix, name, dirPath, null);
+    }
 
     /**
      * 进行页面后缀获取所有磁力
@@ -33,74 +60,70 @@ public class JavBus {
      * @param suffix  页面后缀(https://www.busdmm.cloud/star/81j > star/81j)
      * @param name    名字
      * @param dirPath 文件夹地址
+     * @param limit   只获取前多少个
      */
     @SneakyThrows
-    public void process(String suffix, String name, String dirPath) {
-        List<String> hrefs = FhSearch.search(baseUrl + suffix);
-        // 存放番号的队列
-        LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-        for (String fh : hrefs) {
-            if (StrUtil.isNotBlank(fh)) {
-                queue.offer(fh);
-            }
-        }
-        log.info("共{}个", hrefs.size());
-        // 执行线程池
-        int threadSize = 8;
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(threadSize
-                , threadSize
-                , 0L
-                , TimeUnit.MILLISECONDS
-                , new LinkedBlockingQueue<Runnable>()
-                , new NamedThreadFactory("jav", false));
-        ;
+    public static void process(String suffix, String name, String dirPath, Integer limit) {
         // 磁力文件地址
         String magentPath = dirPath + name + "_magent.txt";
         // 未找到番号地址
         String notFindFhPath = dirPath + name + "_not_find_fh.txt";
 
+        AsyncEventBus bus = new AsyncEventBus(executor);
+        // 注册消费者
+        bus.register(new MagentSearch());
 
-        for (int i = 0; i < threadSize; i++) {
-            executor.execute(new MagentSearch(magentPath, notFindFhPath, queue));
-        }
 
-        while (executor.getActiveCount() != 0) {
-            Thread.sleep(2000);
+        List<String> hrefs = FhSearch.search(baseUrl + suffix, limit);
+        int size = hrefs.size();
+
+        LongAdder remaining = new LongAdder();
+        log.info("共{}个", size);
+        remaining.add(size);
+
+        hrefs.stream().filter(StrUtil::isNotBlank)
+                .forEach(href -> {
+                    // 发送事件
+                    bus.post(EventObject.builder()
+                            .magentPath(magentPath)
+                            .notFindFhPath(notFindFhPath)
+                            .href(href)
+                            .remaining(remaining)
+                            .build());
+                });
+
+        while (remaining.intValue() > 0) {
+            Thread.sleep(1000);
         }
     }
 
-    public static class MagentSearch implements Runnable {
+    public static class MagentSearch {
         /**
-         * 磁力文件地址
+         * 消费事件
+         *
+         * @param eventObject 事件对象
          */
-        String magentPath;
-        /**
-         * 未找到番号地址
-         */
-        String notFindFhPath;
-        LinkedBlockingQueue<String> queue;
-
-        public MagentSearch(String magentPath, String notFindFhPath, LinkedBlockingQueue<String> queue) {
-            this.magentPath = magentPath;
-            this.notFindFhPath = notFindFhPath;
-            this.queue = queue;
-        }
-
-        @Override
-        public void run() {
-            while (!queue.isEmpty()) {
-                String href = queue.poll();
-                if (href == null) {
-                    break;
+        @Subscribe
+        @AllowConcurrentEvents
+        public void subscribe(EventObject eventObject) {
+            try {
+                String magent = getMagent(eventObject.getHref());
+                // 写入文件
+                if (StrUtil.isNotBlank(magent)) {
+                    writeToFile(magent, eventObject.getMagentPath());
+                } else {
+                    writeToFile(eventObject.getHref(), eventObject.getNotFindFhPath());
                 }
-                try {
-                    log.info("剩余{}个", queue.size());
-                    getMagent(href);
-                } catch (Exception e) {
-                    log.error(e.getMessage(), e);
-                    writeToFile(href, notFindFhPath);
-                }
+            } catch (Exception e) {
+                log.error(e.getMessage(), e);
+                // 出现错误写入文件
+                writeToFile(eventObject.getHref(), eventObject.getNotFindFhPath());
+            } finally {
+                // 打印剩余数量
+                eventObject.getRemaining().decrement();
+                log.info("剩余{}个", eventObject.getRemaining().intValue());
             }
+
         }
 
         /**
@@ -108,7 +131,7 @@ public class JavBus {
          *
          * @param href 番号
          */
-        private void getMagent(String href) throws IOException {
+        private String getMagent(String href) throws IOException {
             log.info("解析页面{}", href);
             Document document = Jsoup.connect(href).get();
             // 获取ajax参数
@@ -120,11 +143,7 @@ public class JavBus {
             request.header(header(magentUrl)).timeout(10000);
             HttpResponse response = request.form(param(var)).execute();
             // 查找磁力
-            String magent = processMagent(response.body());
-            if (StrUtil.isNotBlank(magent)) {
-                // 写入文件
-                writeToFile(magent, magentPath);
-            }
+            return processMagent(response.body());
         }
 
         /**
@@ -224,7 +243,7 @@ public class JavBus {
          * @param url url(不带翻页号)
          */
         @SneakyThrows
-        public static List<String> search(String url) {
+        public static List<String> search(String url, Integer limit) {
             List<String> res = new ArrayList<>();
             int page = 1;
             while (true) {
@@ -238,8 +257,12 @@ public class JavBus {
                 if (waterfall == null) {
                     break;
                 }
-                res.addAll(process(waterfall));
+                process(waterfall, res, limit);
 
+                // 限制获取数量(获取前多少条)
+                if (limit != null && res.size() >= limit) {
+                    break;
+                }
                 page++;
             }
             return res;
@@ -250,16 +273,39 @@ public class JavBus {
          *
          * @param elements 页面对象
          */
-        private static List<String> process(Elements elements) {
-            List<String> res = new ArrayList<>(30);
+        private static void process(Elements elements, List<String> res, Integer limit) {
             for (int i = 1; i <= 30; i++) {
                 String href = elements.select("div:nth-child(" + i + ") > a").attr("href");
                 if (StrUtil.isBlank(href)) {
                     continue;
                 }
+                // 限制获取数量(获取前多少条)
+                if (limit != null && res.size() >= limit) {
+                    break;
+                }
                 res.add(href);
             }
-            return res;
         }
+    }
+
+    /**
+     * 事件对象
+     */
+    @Getter
+    @Builder
+    public static class EventObject {
+        private String href;
+        /**
+         * 磁力文件地址
+         */
+        private String magentPath;
+        /**
+         * 未找到番号地址
+         */
+        private String notFindFhPath;
+        /**
+         * 剩余数量
+         */
+        private LongAdder remaining;
     }
 }
