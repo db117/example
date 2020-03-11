@@ -6,6 +6,6 @@ public class JavBusTest {
 
     @Test
     public void process() {
-        JavBus.process("star/nj9", "葵", "D:\\jav\\", 40);
+        JavBus.process("series/lkf", "磔獄門レ○プ", "D:\\jav\\", 40);
     }
 }
