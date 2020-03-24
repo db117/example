@@ -36,14 +36,26 @@ public class ExcelExportUtil {
     private static ThreadLocal<ExportObject> threadLocal = new ThreadLocal<>();
 
     /**
-     * 构建导出对象
+     * 构建导出对象(默认关闭输入流)
      *
-     * @param file        末班文件
+     * @param inputStream 模板文件流
      * @param objectKey   对象key对应得列数(0开始)
      * @param sheetMaxRow 单sheet大小(2-100W)
      */
+    public static void build(InputStream inputStream, String[] objectKey, int sheetMaxRow) {
+        build(inputStream, true, objectKey, sheetMaxRow);
+    }
+
+    /**
+     * 构建导出对象
+     *
+     * @param inputStream   模板文件流
+     * @param isCloseStream 是否关闭流
+     * @param objectKey     对象key对应得列数(0开始)
+     * @param sheetMaxRow   单sheet大小(2-100W)
+     */
     @SneakyThrows({IOException.class})
-    public static void build(File file, String[] objectKey, int sheetMaxRow) {
+    public static void build(InputStream inputStream, boolean isCloseStream, String[] objectKey, int sheetMaxRow) {
         if (sheetMaxRow > 1000000 || sheetMaxRow < 2) {
             throw new IllegalArgumentException("单sheet最大行不正确");
         }
@@ -54,7 +66,7 @@ public class ExcelExportUtil {
         CellStyle[] headCellStyles;
 
         // 为不影响源文件,不直接读取文件
-        InputStream is = new ByteArrayInputStream(IoUtil.readBytes(IoUtil.toStream(file)));
+        InputStream is = new ByteArrayInputStream(IoUtil.readBytes(inputStream, isCloseStream));
         XSSFWorkbook workbook = new XSSFWorkbook(is);
         XSSFSheet sheet = workbook.getSheetAt(0);
         // 样式行
@@ -116,6 +128,14 @@ public class ExcelExportUtil {
     }
 
     /**
+     * 导出空数据文件,包含表头
+     */
+    public static File stopNotDate() {
+        getSheet();
+        return stop();
+    }
+
+    /**
      * 导出结束
      */
     @SneakyThrows
@@ -135,7 +155,6 @@ public class ExcelExportUtil {
     private static void writeByRow(Map<String, Object> map) {
         checkRange();
         ExportObject exportObject = threadLocal.get();
-        SXSSFWorkbook workbook = exportObject.workbook;
 
         SXSSFSheet sheet = getSheet();
 
@@ -153,8 +172,10 @@ public class ExcelExportUtil {
             if (o == null) {
                 continue;
             }
+
             setValue(o, cell);
         }
+
         exportObject.rowNum++;
     }
 
@@ -197,6 +218,7 @@ public class ExcelExportUtil {
         checkRange();
         ExportObject exportObject = threadLocal.get();
         SXSSFWorkbook workbook = exportObject.workbook;
+
         if (exportObject.rowNum != 0) {
             return workbook.getSheetAt(exportObject.currentSheetIndex);
         }
@@ -209,10 +231,12 @@ public class ExcelExportUtil {
             // 第一个sheet直接获取
             sheet = workbook.getSheetAt(0);
         }
+
         // 设置列宽
         for (int i = 0; i < exportObject.colWidth.length; i++) {
             sheet.setColumnWidth(i, exportObject.colWidth[i]);
         }
+
         // 第一行写入头
         writeTitle();
         return sheet;
