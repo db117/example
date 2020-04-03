@@ -1,5 +1,6 @@
 package com.db117.example.poi;
 
+import cn.hutool.core.io.IoUtil;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,7 +30,7 @@ public class ExcelExportUtilTest {
         Date date = new Date();
         LocalDate localDate = LocalDate.now();
         LocalDateTime localDateTime = LocalDateTime.now();
-        ExcelExportUtil.build(file
+        ExcelExportUtil.build(IoUtil.toStream(file)
                 , new String[]{
                         "string"
                         , "integer"

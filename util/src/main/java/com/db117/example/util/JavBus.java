@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.LongAdder;
  */
 @Slf4j
 public class JavBus {
-    private static String baseUrl = "https://www.busdmm.cloud/";
+    private static String baseUrl = "https://www.cdnbus.one/";
     /**
      * 执行线程池
      */
@@ -133,14 +133,16 @@ public class JavBus {
          */
         private String getMagent(String href) throws IOException {
             log.info("解析页面{}", href);
-            Document document = Jsoup.connect(href).get();
+            Document document = Jsoup.connect(href)
+                    .timeout(60000)
+                    .get();
             // 获取ajax参数
             String var = document.select("body > script:nth-child(9)").html();
 
             // 调用查询番号接口
             String magentUrl = baseUrl + "ajax/uncledatoolsbyajax.php";
             HttpRequest request = HttpUtil.createGet(magentUrl);
-            request.header(header(magentUrl)).timeout(10000);
+            request.header(header(magentUrl)).timeout(60000);
             HttpResponse response = request.form(param(var)).execute();
             // 查找磁力
             return processMagent(response.body());
@@ -248,7 +250,10 @@ public class JavBus {
             int page = 1;
             while (true) {
                 log.info("正在解析第{}页", page);
-                Connection.Response response = Jsoup.connect(url + "/" + page).ignoreHttpErrors(true).execute();
+                Connection.Response response = Jsoup.connect(url + "/" + page)
+                        .timeout(60000)
+                        .ignoreHttpErrors(true)
+                        .execute();
                 if (response.statusCode() != 200) {
                     break;
                 }
