@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.LongAdder;
  */
 @Slf4j
 public class JavBus {
-    private static String baseUrl = "https://www.cdnbus.one/";
+    private static String baseUrl = "https://www.javbus.com/";
     /**
      * 执行线程池
      */
@@ -131,7 +131,7 @@ public class JavBus {
          *
          * @param href 番号
          */
-        private String getMagent(String href) throws IOException {
+        public String getMagent(String href) throws IOException {
             log.info("解析页面{}", href);
             Document document = Jsoup.connect(href)
                     .timeout(60000)
@@ -152,15 +152,21 @@ public class JavBus {
          * 解析返回的html
          * 获取文件最大的磁力
          */
-        private String processMagent(String html) {
-            Document document = Jsoup.parse(html);
+        public String processMagent(String html) {
+            Document document = Jsoup.parse("<table>" + html + "</table>");
             TreeMap<Double, String> treeMap = new TreeMap<>();
-            Elements elements = document.select("a[rel=nofollow]");
 
-            for (int i = 0; i < elements.size(); i += 3) {
-                Element element = elements.get(i + 1);
-                String size = element.text();
-                treeMap.put(processSize(size), element.attr("href"));
+
+            Elements trs = document.select("tr");
+            for (Element element : trs) {
+                boolean flag = element.select("td:eq(0) a[title=包含字幕的磁力連結]").size() > 0;
+                System.out.println(flag);
+                Element e = element.select("td:eq(1) a").first();
+                double size = processSize(e.text());
+                if (flag) {
+                    size = size * 2;
+                }
+                treeMap.put(size, e.attr("href"));
             }
 
             // 找到最大的
@@ -177,7 +183,7 @@ public class JavBus {
             double d;
             try {
                 d = Double.parseDouble(size.substring(0, size.length() - 2));
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 return 0;
             }
             String last = size.substring(size.length() - 2);
@@ -218,6 +224,7 @@ public class JavBus {
             map.put("gid", split[0].trim());
             map.put("uc", split[1].trim());
             map.put("img", split[2].trim());
+            map.put("lang", "zh");
             return map;
         }
 
