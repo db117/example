@@ -20,8 +20,8 @@
     </modules>
 
     <properties>
-        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
-        <hutool.version>5.3.2</hutool.version>
+        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <hutool.version>5.3.5</hutool.version>
         <guava.version>29.0-jre</guava.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
         <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
@@ -31,7 +31,7 @@
         <jsoup.version>1.13.1</jsoup.version>
         <poi.version>4.1.2</poi.version>
         <jmh.version>1.23</jmh.version>
-        <lucene.version>8.5.1</lucene.version>
+        <lucene.version>8.5.2</lucene.version>
 
         <example.version>1.0-SNAPSHOT</example.version>
         <maven.compiler.source>1.8</maven.compiler.source>

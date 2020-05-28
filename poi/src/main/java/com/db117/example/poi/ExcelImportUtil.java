@@ -1,7 +1,6 @@
 package com.db117.example.poi;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.ooxml.util.SAXHelper;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
@@ -9,6 +8,7 @@ import org.apache.poi.openxml4j.opc.PackageAccess;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.util.CellAddress;
 import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.util.XMLHelper;
 import org.apache.poi.xssf.eventusermodel.ReadOnlySharedStringsTable;
 import org.apache.poi.xssf.eventusermodel.XSSFReader;
 import org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler;
@@ -193,7 +193,7 @@ public class ExcelImportUtil {
         InputSource sheetSource = new InputSource(sheetInputStream);
         try {
             // xml读取类
-            XMLReader sheetParser = SAXHelper.newXMLReader();
+            XMLReader sheetParser = XMLHelper.newXMLReader();
             // xml处理方法
             ContentHandler handler = new XSSFSheetXMLHandler(
                     styles
