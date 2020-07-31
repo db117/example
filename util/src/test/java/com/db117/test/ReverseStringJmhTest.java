@@ -12,7 +12,7 @@ import org.openjdk.jmh.annotations.State;
  **/
 @Slf4j
 @State(Scope.Benchmark)
-public class JmhTest {
+public class ReverseStringJmhTest {
 
     public String testString = "fdasfawetgefgasdgegertasetawetwatastest";
 

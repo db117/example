@@ -20,6 +20,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -75,6 +76,33 @@ public class JavBus {
 
 
         List<String> hrefs = FhSearch.search(baseUrl + suffix, limit);
+        searchMagent(magentPath, bus, hrefs, notFindFhPath);
+    }
+
+    /**
+     * 从文件获取磁力
+     */
+    @SneakyThrows
+    public static void processByFile(String srcPath, String tarPath) {
+        AsyncEventBus bus = new AsyncEventBus(executor);
+        // 注册消费者
+        bus.register(new MagentSearch());
+
+
+        List<String> hrefs = FileUtil.readLines(srcPath, StandardCharsets.UTF_8);
+        String notFindFhPath = tarPath + ".err";
+        searchMagent(srcPath, bus, hrefs, notFindFhPath);
+    }
+
+    /**
+     * 查询番号
+     *
+     * @param magentPath    磁力输出地址
+     * @param bus           事件
+     * @param hrefs         链接集合
+     * @param notFindFhPath 异常输出
+     */
+    private static void searchMagent(String magentPath, AsyncEventBus bus, List<String> hrefs, String notFindFhPath) throws InterruptedException {
         int size = hrefs.size();
 
         LongAdder remaining = new LongAdder();
@@ -159,9 +187,17 @@ public class JavBus {
 
             Elements trs = document.select("tr");
             for (Element element : trs) {
+                Elements select = element.select("td:eq(0)");
+                if (select.get(0).html().contains("DVD")) {
+                    // 去掉 iso
+                    continue;
+                }
                 boolean flag = element.select("td:eq(0) a[title=包含字幕的磁力連結]").size() > 0;
-                System.out.println(flag);
+
                 Element e = element.select("td:eq(1) a").first();
+                if (e == null) {
+                    continue;
+                }
                 double size = processSize(e.text());
                 if (flag) {
                     size = size * 2;
