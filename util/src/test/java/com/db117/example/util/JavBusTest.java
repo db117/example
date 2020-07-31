@@ -8,17 +8,25 @@ import java.io.IOException;
 public class JavBusTest {
     @Before
     public void setUp() throws Exception {
-        System.setProperty("http.proxySet", "true");
-        System.setProperty("http.proxyHost", "127.0.0.1");
-        System.setProperty("http.proxyPort", "" + "7777");
-        System.setProperty("https.proxyHost", "127.0.0.1");
-        System.setProperty("https.proxyPort", "7777");
+//        System.setProperty("http.proxySet", "true");
+//        System.setProperty("http.proxyHost", "127.0.0.1");
+//        System.setProperty("http.proxyPort", "" + "10808");
+//        System.setProperty("https.proxyHost", "127.0.0.1");
+//        System.setProperty("https.proxyPort", "10808");
+        System.getProperties().put("socksProxySet", "true");
+        System.getProperties().put("socksProxyHost", "localhost");
+        System.getProperties().put("socksProxyPort", "10808");
     }
 
     @Test
     public void process() {
 
-        JavBus.process("star/2jv", "波多野結衣", "D:\\jav\\", 3);
+        JavBus.process("uncensored/star/kxe", "麻生希", "D:\\jav\\");
+    }
+
+    @Test
+    public void precessByFile() {
+        JavBus.processByFile("D:\\jav\\龍縛_not_find_fh.txt", "D:\\jav\\龍縛_magent.txt");
     }
 
     @Test
