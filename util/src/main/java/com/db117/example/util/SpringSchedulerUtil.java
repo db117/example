@@ -8,9 +8,9 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.scheduling.config.TriggerTask;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 基于spring的调度实现任务的增删改查
@@ -30,7 +30,7 @@ public class SpringSchedulerUtil implements SchedulingConfigurer {
     /**
      * 保存业务中的任务和spring任务映射
      */
-    private Map<String, ScheduledTask> taskNameMap = new ConcurrentHashMap<>();
+    private Map<String, ScheduledTask> taskNameMap = new HashMap<>();
     /**
      * spring的任务管理
      */
@@ -48,7 +48,7 @@ public class SpringSchedulerUtil implements SchedulingConfigurer {
      * @param taskName    任务名称
      * @param triggerTask 任务
      */
-    public void addTriggerTask(String taskName, TriggerTask triggerTask) {
+    public synchronized void addTriggerTask(String taskName, TriggerTask triggerTask) {
         if (taskNameMap.containsKey(taskName)) {
             log.warn("Task already exists, cancel and add again");
             // 如果存在任务,则取消在添加
@@ -69,7 +69,7 @@ public class SpringSchedulerUtil implements SchedulingConfigurer {
      *
      * @param taskName 任务名称
      */
-    public void cancelTriggerTask(String taskName) {
+    public synchronized void cancelTriggerTask(String taskName) {
         log.info("task cancelTriggerTask,taskName->[{}]", taskName);
         ScheduledTask scheduledTask = taskNameMap.get(taskName);
         if (scheduledTask == null) {
@@ -89,7 +89,7 @@ public class SpringSchedulerUtil implements SchedulingConfigurer {
      * @param taskName    任务名称
      * @param triggerTask 任务
      */
-    public void resetTriggerTask(String taskName, TriggerTask triggerTask) {
+    public synchronized void resetTriggerTask(String taskName, TriggerTask triggerTask) {
         log.info("task resetTriggerTask,taskName->[{}]", taskName);
         cancelTriggerTask(taskName);
         addTriggerTask(taskName, triggerTask);
