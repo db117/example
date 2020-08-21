@@ -63,3 +63,4 @@ atlassian-ide-plugin.xml
 
 # NetBeans specific files/directories
 .nbattrs
+/leetcode/src/main/java/com/db117/example/leetcode/leetcode/editor/cn/
