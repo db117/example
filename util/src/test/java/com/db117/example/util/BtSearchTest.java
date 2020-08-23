@@ -1,7 +1,9 @@
 package com.db117.example.util;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class BtSearchTest {
 
     @Test

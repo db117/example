@@ -229,7 +229,11 @@ public class ExcelExportUtil {
         }
         if (exportObject.currentSheetIndex == 0) {
             // 第一个sheet直接获取
-            sheet = workbook.getSheetAt(0);
+            if (workbook.getNumberOfSheets() == 0) {
+                sheet = workbook.createSheet();
+            } else {
+                sheet = workbook.getSheetAt(0);
+            }
         }
 
         // 设置列宽

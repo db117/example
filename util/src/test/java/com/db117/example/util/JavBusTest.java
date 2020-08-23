@@ -1,10 +1,12 @@
 package com.db117.example.util;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
 
+@Ignore
 public class JavBusTest {
     @Before
     public void setUp() throws Exception {

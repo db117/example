@@ -2,6 +2,7 @@ package com.db117.example.poi;
 
 import cn.hutool.core.io.IoUtil;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -25,6 +26,7 @@ public class ExcelExportUtilTest {
     }
 
     @Test
+    @Ignore
     public void test() {
         List<ExportObject> list = new ArrayList<>(10000);
         Date date = new Date();

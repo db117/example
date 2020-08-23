@@ -2,11 +2,9 @@ package com.db117.example.zk.api;
 
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.data.Stat;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
+@Ignore
 public class ZookeeperCrudTest {
     private ZookeeperCrud crud;
 

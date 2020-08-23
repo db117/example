@@ -1,13 +1,11 @@
 package com.db117.example.zk.zkClient;
 
 import com.db117.example.common.domain.User;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import java.time.LocalDate;
 
+@Ignore
 public class ZkClientCrudTest {
     private ZkClientCrud<User> client;
 
