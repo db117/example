@@ -1,0 +1,3 @@
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+com.db117.example.test.ext.boot.SpringApplicationRunListenerImpl

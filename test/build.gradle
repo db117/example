@@ -1,0 +1,4 @@
+dependencies {
+    implementation("${lib.'spring-boot-starter-web'}")
+    implementation("${lib.'spring-boot-starter-test'}")
+}
