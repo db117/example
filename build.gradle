@@ -4,7 +4,7 @@ allprojects {
 }
 
 ext {
-     lib = [
+    lib = [
             "spring-boot-dependencies"                : "org.springframework.boot:spring-boot-dependencies:2.3.3.RELEASE",
             "spring-boot-starter-logging"             : "org.springframework.boot:spring-boot-starter-logging",
             "spring-boot-starter-web"                 : "org.springframework.boot:spring-boot-starter-web",
@@ -31,7 +31,7 @@ ext {
             "zookeeper"                               : "org.apache.zookeeper:zookeeper:3.4.14",
             "curator-recipes"                         : "org.apache.curator:curator-recipes:4.2.0",
             "zkclient"                                : "com.101tec:zkclient:0.11",
-
+            "aviator"                                 : "com.googlecode.aviator:aviator:5.1.4"
     ]
 }
 

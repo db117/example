@@ -12,6 +12,7 @@ dependencies {
     implementation "${lib.'mybatis-plus-boot-starter'}"
     implementation "${lib.'spring-boot-starter-web'}"
     implementation "${lib.'spring-boot-starter-test'}"
+    implementation "${lib.'aviator'}"
 }
 
 group = 'com.db117.example'
