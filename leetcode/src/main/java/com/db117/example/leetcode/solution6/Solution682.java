@@ -45,7 +45,7 @@
 // 👍 147 👎 0
 
 
-package com.db117.example.leetcode.leetcode.editor.cn;
+package com.db117.example.leetcode.solution6;
 
 import java.util.Deque;
 import java.util.LinkedList;
