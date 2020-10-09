@@ -31,7 +31,7 @@
 // Related Topics 数组 
 // 👍 149 👎 0
 
-package com.db117.example.leetcode.leetcode.editor.cn;
+package com.db117.example.leetcode.solution7;
 
 /**
  * 717.1比特与2比特字符.1-bit-and-2-bit-characters
