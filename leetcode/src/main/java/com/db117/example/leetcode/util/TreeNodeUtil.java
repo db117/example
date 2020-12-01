@@ -21,6 +21,11 @@ public class TreeNodeUtil {
         Deque<TreeNode> deque = new LinkedList<TreeNode>();
 
         TreeNode root = new TreeNode(data[0]);
+
+        if (data.length == 1) {
+            return root;
+        }
+
         deque.offerFirst(root);
 
         int index = 1;
