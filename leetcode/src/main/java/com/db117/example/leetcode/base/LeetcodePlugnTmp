@@ -1,0 +1,35 @@
+## 设置名字
+#if ($!velocityTool.contains(${question.frontendQuestionId},"Offer"))
+#set($name = "Offer_$!velocityTool.removeStart(${question.frontendQuestionId}, '剑指 Offer ')" )
+
+#elseif ($!velocityTool.contains(${question.frontendQuestionId}, "LCP"))
+#set($name = "LCP_$!velocityTool.removeStart(${question.frontendQuestionId}, 'LCP ')" )
+
+#elseif($!velocityTool.contains(${question.frontendQuestionId}, "面试题"))
+#set($name = "Interview_$!velocityTool.removeStart(${question.frontendQuestionId}, '面试题 ')" )
+
+#else
+#set($name = "Solution_${question.frontendQuestionId}" )
+#end
+
+#set($name = $!velocityTool.remove(${name}, '.'))
+#set($name = $!velocityTool.remove(${name}, ' '))
+#set($name = $!velocityTool.replace(${name}, "-", "_"))
+
+${question.content}
+
+package com.db117.example.leetcode.leetcode.editor.cn;
+
+ /**
+ * ${question.frontendQuestionId}.${question.title}.${question.titleSlug}
+ *
+ * @author db117
+ * @since  $!velocityTool.date()
+ **/
+
+  public class ${name}{
+      public static void main(String[] args) {
+           Solution solution = new ${name}().new Solution();
+      }
+      ${question.code}
+  }
