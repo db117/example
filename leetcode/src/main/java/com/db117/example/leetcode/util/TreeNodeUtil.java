@@ -79,6 +79,7 @@ public class TreeNodeUtil {
      */
     public static void inorderPrint(TreeNode root) {
         if (root == null) {
+            System.out.println(root);
             return;
         }
         inorderPrint(root.left);
