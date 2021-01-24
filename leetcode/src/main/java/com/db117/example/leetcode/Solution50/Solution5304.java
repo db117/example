@@ -1,4 +1,4 @@
-package com.db117.example.leetcode.Solution53;
+package com.db117.example.leetcode.Solution50;
 
 import java.util.Arrays;
 
