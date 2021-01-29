@@ -22,7 +22,7 @@
 package com.db117.example.leetcode.office;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 import java.util.Arrays;
 
@@ -36,7 +36,7 @@ import java.util.Arrays;
 public class Offer_06 {
     public static void main(String[] args) {
         Solution solution = new Offer_06().new Solution();
-        System.out.println(Arrays.toString(solution.reversePrint(ListNodeBuilder.builder(new int[]{
+        System.out.println(Arrays.toString(solution.reversePrint(ListNodeUtil.builder(new int[]{
                 1
         }))));
     }

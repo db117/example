@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution2;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 206. 反转链表
@@ -24,8 +24,8 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 
 public class Solution206 {
     public static void main(String[] args) {
-        ListNode builder = ListNodeBuilder.builder(new int[]{1, 2, 3, 4, 5});
-        ListNodeBuilder.print(new Solution206().reverseList(builder));
+        ListNode builder = ListNodeUtil.builder(new int[]{1, 2, 3, 4, 5});
+        ListNodeUtil.print(new Solution206().reverseList(builder));
     }
 
     public ListNode reverseList(ListNode head) {

@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution8;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 876. 链表的中间结点
@@ -38,7 +38,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
  */
 public class Solution876 {
     public static void main(String[] args) {
-        ListNodeBuilder.print(new Solution876().middleNode(ListNodeBuilder.builder(new int[]{
+        ListNodeUtil.print(new Solution876().middleNode(ListNodeUtil.builder(new int[]{
                 1, 2, 3, 4, 5, 6, 7
         })));
     }

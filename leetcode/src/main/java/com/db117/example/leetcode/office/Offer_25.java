@@ -20,7 +20,7 @@
 package com.db117.example.leetcode.office;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 剑指 Offer 25.合并两个排序的链表.he-bing-liang-ge-pai-xu-de-lian-biao-lcof
@@ -32,12 +32,12 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 public class Offer_25 {
     public static void main(String[] args) {
         Solution solution = new Offer_25().new Solution();
-        ListNode node = solution.mergeTwoLists(ListNodeBuilder.builder(new int[]{
+        ListNode node = solution.mergeTwoLists(ListNodeUtil.builder(new int[]{
                 1, 3, 5, 7, 7, 9, 90
-        }), ListNodeBuilder.builder(new int[]{
+        }), ListNodeUtil.builder(new int[]{
                 4, 6, 7, 8, 8, 9, 9, 40
         }));
-        ListNodeBuilder.print(node);
+        ListNodeUtil.print(node);
 
     }
     //leetcode submit region begin(Prohibit modification and deletion)

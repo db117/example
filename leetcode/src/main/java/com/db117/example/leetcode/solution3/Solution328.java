@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution3;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 328. 奇偶链表
@@ -32,11 +32,11 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
  **/
 public class Solution328 {
     public static void main(String[] args) {
-        ListNode listNode = ListNodeBuilder.builder(new int[]{
+        ListNode listNode = ListNodeUtil.builder(new int[]{
                 1, 2, 3, 4, 5, 6, 7, 8, 9
         });
 
-        ListNodeBuilder.print(new Solution328().oddEvenList(listNode));
+        ListNodeUtil.print(new Solution328().oddEvenList(listNode));
     }
 
     public ListNode oddEvenList(ListNode head) {

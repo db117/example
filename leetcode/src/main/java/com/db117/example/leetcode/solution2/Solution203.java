@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution2;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 203. 移除链表元素
@@ -17,8 +17,8 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
  **/
 public class Solution203 {
     public static void main(String[] args) {
-        ListNode builder = ListNodeBuilder.builder(new int[]{1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9});
-        ListNodeBuilder.print(new Solution203().removeElements(builder, 1));
+        ListNode builder = ListNodeUtil.builder(new int[]{1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9});
+        ListNodeUtil.print(new Solution203().removeElements(builder, 1));
     }
 
     public ListNode removeElements(ListNode head, int val) {

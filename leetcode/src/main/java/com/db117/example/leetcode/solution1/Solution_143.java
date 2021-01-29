@@ -17,7 +17,7 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 143.重排链表.reorder-list
@@ -29,11 +29,11 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 public class Solution_143 {
     public static void main(String[] args) {
         Solution solution = new Solution_143().new Solution();
-        ListNode builder = ListNodeBuilder.builder(new int[]{
+        ListNode builder = ListNodeUtil.builder(new int[]{
                 1, 2, 3, 4, 5, 6, 7, 8
         });
         solution.reorderList(builder);
-        ListNodeBuilder.print(builder);
+        ListNodeUtil.print(builder);
 
     }
     //leetcode submit region begin(Prohibit modification and deletion)

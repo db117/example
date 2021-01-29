@@ -64,7 +64,7 @@
 package com.db117.example.leetcode.office;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 剑指 Offer 52.两个链表的第一个公共节点.liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof
@@ -76,16 +76,16 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 public class Offer_52 {
     public static void main(String[] args) {
         Solution solution = new Offer_52().new Solution();
-        ListNode node = ListNodeBuilder.builder(new int[]{0, 9, 1, 2, 4});
-        ListNode node1 = ListNodeBuilder.builder(new int[]{3, 2, 4});
+        ListNode node = ListNodeUtil.builder(new int[]{0, 9, 1, 2, 4});
+        ListNode node1 = ListNodeUtil.builder(new int[]{3, 2, 4});
 
-        ListNode last = ListNodeBuilder.builder(new int[]{3, 2, 4});
+        ListNode last = ListNodeUtil.builder(new int[]{3, 2, 4});
 
         helper(node, last);
         helper(node1, last);
 
         ListNode res = solution.getIntersectionNode(node, node1);
-        ListNodeBuilder.print(res);
+        ListNodeUtil.print(res);
     }
 
     public static void helper(ListNode head, ListNode last) {

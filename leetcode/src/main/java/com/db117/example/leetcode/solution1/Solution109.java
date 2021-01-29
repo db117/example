@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 import com.db117.example.leetcode.util.TreeNode;
 import com.db117.example.leetcode.util.TreeNodeUtil;
 
@@ -33,7 +33,7 @@ import com.db117.example.leetcode.util.TreeNodeUtil;
 
 public class Solution109 {
     public static void main(String[] args) {
-        ListNode builder = ListNodeBuilder.builder(new int[]{-10, -3, 0, 5, 9});
+        ListNode builder = ListNodeUtil.builder(new int[]{-10, -3, 0, 5, 9});
         TreeNode helper = new Solution109().helper(builder);
         TreeNodeUtil.inorderPrint(helper);
     }

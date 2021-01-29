@@ -34,7 +34,7 @@
 package com.db117.example.leetcode.interview;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -49,7 +49,7 @@ import java.util.Set;
 public class Interview_0201 {
     public static void main(String[] args) {
         Solution solution = new Interview_0201().new Solution();
-        ListNodeBuilder.print(solution.removeDuplicateNodes(ListNodeBuilder.builder(new int[]{
+        ListNodeUtil.print(solution.removeDuplicateNodes(ListNodeUtil.builder(new int[]{
                 1, 2, 3, 3, 2, 1
         })));
     }

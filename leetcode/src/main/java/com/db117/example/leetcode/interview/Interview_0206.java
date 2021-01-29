@@ -28,7 +28,7 @@
 package com.db117.example.leetcode.interview;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 面试题 02.06.回文链表.palindrome-linked-list-lcci
@@ -40,7 +40,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 public class Interview_0206 {
     public static void main(String[] args) {
         Solution solution = new Interview_0206().new Solution();
-        System.out.println(solution.isPalindrome(ListNodeBuilder.builder(new int[]{
+        System.out.println(solution.isPalindrome(ListNodeUtil.builder(new int[]{
                 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1
         })));
     }

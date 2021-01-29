@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
@@ -24,11 +24,11 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 
 public class Solution92 {
     public static void main(String[] args) {
-        ListNode node = ListNodeBuilder.builder(new int[]{
+        ListNode node = ListNodeUtil.builder(new int[]{
                 1, 2, 3, 4, 5
         });
         System.out.println(new Solution92().reverseBetween(node, 2, 4));
-        ListNodeBuilder.print(node);
+        ListNodeUtil.print(node);
     }
 
     public ListNode reverseBetween(ListNode head, int m, int n) {

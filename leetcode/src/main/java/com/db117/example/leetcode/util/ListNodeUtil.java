@@ -5,8 +5,8 @@ package com.db117.example.leetcode.util;
  * @date 2019/7/10
  **/
 
-public class ListNodeBuilder {
-    private ListNodeBuilder() {
+public class ListNodeUtil {
+    private ListNodeUtil() {
     }
 
     /**

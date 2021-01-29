@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution2;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 234. 回文链表
@@ -28,7 +28,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 
 public class Solution234 {
     public static void main(String[] args) {
-        ListNode node = ListNodeBuilder.builder(new int[]{1, 2, 1});
+        ListNode node = ListNodeUtil.builder(new int[]{1, 2, 1});
         System.out.println(new Solution234().isPalindrome(node));
     }
 

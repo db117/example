@@ -15,7 +15,7 @@
 package com.db117.example.leetcode.office;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 剑指 Offer 22.链表中倒数第k个节点.lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof
@@ -27,7 +27,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 public class Offer_22 {
     public static void main(String[] args) {
         Solution solution = new Offer_22().new Solution();
-        ListNodeBuilder.print(solution.getKthFromEnd(ListNodeBuilder.builder(new int[]{
+        ListNodeUtil.print(solution.getKthFromEnd(ListNodeUtil.builder(new int[]{
                 1, 2, 3, 4, 5, 6, 7
         }), 2));
     }

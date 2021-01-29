@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 141. 环形链表
@@ -49,7 +49,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 
 public class Solution141 {
     public static void main(String[] args) {
-        ListNode node = ListNodeBuilder.builder(new int[]{3, 2, 0, -4});
+        ListNode node = ListNodeUtil.builder(new int[]{3, 2, 0, -4});
         System.out.println(new Solution141().hasCycle(node));
     }
 

@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution12;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 1290. 二进制链表转整数
@@ -51,7 +51,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
  */
 public class Solution1290 {
     public static void main(String[] args) {
-        ListNode builder = ListNodeBuilder.builder(new int[]{
+        ListNode builder = ListNodeUtil.builder(new int[]{
                 1
         });
 

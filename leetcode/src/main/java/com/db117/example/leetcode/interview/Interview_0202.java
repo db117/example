@@ -17,7 +17,7 @@
 package com.db117.example.leetcode.interview;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 面试题 02.02.返回倒数第 k 个节点.kth-node-from-end-of-list-lcci
@@ -29,7 +29,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 public class Interview_0202 {
     public static void main(String[] args) {
         Solution solution = new Interview_0202().new Solution();
-        System.out.println(solution.kthToLast(ListNodeBuilder.builder(new int[]{
+        System.out.println(solution.kthToLast(ListNodeUtil.builder(new int[]{
                 1, 2, 3, 4, 5, 6
         }), 4));
     }

@@ -33,7 +33,7 @@
 package com.db117.example.leetcode.office;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 剑指 Offer 18.删除链表的节点.shan-chu-lian-biao-de-jie-dian-lcof
@@ -45,7 +45,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 public class Offer_18 {
     public static void main(String[] args) {
         Solution solution = new Offer_18().new Solution();
-        ListNodeBuilder.print(solution.deleteNode(ListNodeBuilder.builder(new int[]{
+        ListNodeUtil.print(solution.deleteNode(ListNodeUtil.builder(new int[]{
                 4, 5, 1, 9
         }), 6));
     }

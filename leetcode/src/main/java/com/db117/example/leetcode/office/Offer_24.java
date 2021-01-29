@@ -23,7 +23,7 @@
 package com.db117.example.leetcode.office;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 剑指 Offer 24.反转链表.fan-zhuan-lian-biao-lcof
@@ -35,7 +35,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
 public class Offer_24 {
     public static void main(String[] args) {
         Solution solution = new Offer_24().new Solution();
-        ListNodeBuilder.print(solution.reverseList(ListNodeBuilder.builder(new int[]{
+        ListNodeUtil.print(solution.reverseList(ListNodeUtil.builder(new int[]{
                 1, 2, 3, 4, 5
         })));
     }

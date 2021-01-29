@@ -1,7 +1,7 @@
 package com.db117.example.leetcode.solution1;
 
 import com.db117.example.leetcode.util.ListNode;
-import com.db117.example.leetcode.util.ListNodeBuilder;
+import com.db117.example.leetcode.util.ListNodeUtil;
 
 /**
  * 148. 排序链表148. 排序链表
@@ -25,7 +25,7 @@ import com.db117.example.leetcode.util.ListNodeBuilder;
  */
 public class Solution148 {
     public static void main(String[] args) {
-        ListNodeBuilder.print(new Solution148().sortList(ListNodeBuilder.builder(new int[]{
+        ListNodeUtil.print(new Solution148().sortList(ListNodeUtil.builder(new int[]{
 
         })));
     }
