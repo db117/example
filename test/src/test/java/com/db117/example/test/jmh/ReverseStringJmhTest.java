@@ -1,4 +1,4 @@
-package com.db117.test;
+package com.db117.example.test.jmh;
 
 import lombok.extern.slf4j.Slf4j;
 import org.openjdk.jmh.annotations.Benchmark;

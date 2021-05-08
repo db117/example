@@ -6,7 +6,7 @@ dependencies {
     implementation "${lib.'hutool-all'}"
     implementation "${lib.'poi'}"
     implementation "${lib.'poi-ooxml'}"
-    implementation "${lib.'poi-ooxml-schemas'}"
+//    implementation "${lib.'poi-ooxml-schemas'}"
     implementation "${lib.pdfbox}"
 }
 
