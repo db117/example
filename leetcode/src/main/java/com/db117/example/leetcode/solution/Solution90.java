@@ -1,7 +1,5 @@
 package com.db117.example.leetcode.solution;
 
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Fork;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,13 +39,6 @@ public class Solution90 {
         }));
     }
 
-    @Benchmark
-    @Fork(1)
-    public void measureName() {
-        new Solution90().subsetsWithDup(new int[]{
-                1, 2, 2
-        });
-    }
 
 
     public List<List<Integer>> subsetsWithDup(int[] nums) {
