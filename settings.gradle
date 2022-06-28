@@ -1,8 +1,10 @@
 rootProject.name = 'example'
-include(':zk')
-include(':common')
-include(':poi')
-include(':util')
-include(':websocket')
-include(':leetcode')
-include('test')
+include 'zk'
+include 'common'
+include 'poi'
+include 'util'
+include 'websocket'
+include 'leetcode'
+include 'test'
+include 'spring'
+
