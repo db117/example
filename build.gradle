@@ -6,7 +6,7 @@ allprojects {
 
 ext {
     lib = [
-            "spring-boot-dependencies"                : "org.springframework.boot:spring-boot-dependencies:2.3.3.RELEASE",
+            "spring-boot-dependencies"                : "org.springframework.boot:spring-boot-dependencies:2.7.1.RELEASE",
             "spring-boot-starter-logging"             : "org.springframework.boot:spring-boot-starter-logging",
             "spring-boot-starter-web"                 : "org.springframework.boot:spring-boot-starter-web",
             "spring-boot-starter-test"                : "org.springframework.boot:spring-boot-starter-test",
