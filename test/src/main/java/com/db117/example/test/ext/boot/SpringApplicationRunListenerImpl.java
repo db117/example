@@ -1,6 +1,7 @@
 package com.db117.example.test.ext.boot;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,12 +19,13 @@ public class SpringApplicationRunListenerImpl implements SpringApplicationRunLis
     }
 
     @Override
-    public void starting() {
+    public void starting(ConfigurableBootstrapContext bootstrapContext) {
         log.info("开始启动 调用SpringApplicationRunListener.starting");
     }
 
     @Override
-    public void environmentPrepared(ConfigurableEnvironment environment) {
+    public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext,
+                                    ConfigurableEnvironment environment) {
         log.info("环境准备好了 调用SpringApplicationRunListener.environmentPrepared ,environment[{}]", environment);
     }
 

@@ -1,4 +1,4 @@
-package com.db117.example.util;
+package com.db117.example.util.lqbz;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.thread.NamedThreadFactory;

@@ -1,5 +1,6 @@
 package com.db117.example.util;
 
+import com.db117.example.util.lqbz.BtSearch;
 import org.junit.Ignore;
 import org.junit.Test;
 

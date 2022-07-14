@@ -1,5 +1,6 @@
 package com.db117.example.util;
 
+import com.db117.example.util.lqbz.JavBus;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

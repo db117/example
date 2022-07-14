@@ -1,4 +1,4 @@
-package com.db117.example.util;
+package com.db117.example.spring;
 
 import org.junit.Before;
 import org.junit.Test;

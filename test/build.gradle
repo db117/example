@@ -1,4 +1,5 @@
 dependencies {
     implementation("${lib.'spring-boot-starter-web'}")
     implementation("${lib.'spring-boot-starter-test'}")
+    implementation("${lib.'hutool-all'}")
 }
