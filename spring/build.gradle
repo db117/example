@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group 'com.db117'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform("${lib.'spring-boot-dependencies'}")
+
+
+    annotationProcessor "${lib.lombok}"
+    compileOnly "${lib.lombok}"
+
+    testImplementation "${lib.junit}"
+    testImplementation "${lib.jupiter}"
+
+    implementation "${lib.'hutool-all'}"
+
+
+    implementation "${lib.'spring-boot-starter-logging'}"
+//    implementation "${lib.'spring-boot-starter-web'}"
+    implementation "${lib.'spring-boot-starter-test'}"
+    implementation "${lib.'spring-cloud-starter-gateway'}"
+    implementation "${lib.'spring-cloud-context'}"
+    implementation "${lib.'spring-boot-starter-test'}"
+
+    testAnnotationProcessor "${lib.lombok}"
+    testCompileOnly "${lib.lombok}"
+}
+
+test {
+    useJUnitPlatform()
+}

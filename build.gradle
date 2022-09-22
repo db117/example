@@ -11,6 +11,8 @@ ext {
             "spring-boot-starter-web"                 : "org.springframework.boot:spring-boot-starter-web",
             "spring-boot-starter-test"                : "org.springframework.boot:spring-boot-starter-test",
             "spring-boot-starter-websocket"           : "org.springframework.boot:spring-boot-starter-websocket",
+            "spring-cloud-starter-gateway"            : "org.springframework.cloud:spring-cloud-starter-gateway:3.1.4",
+            "spring-cloud-context"                    : "org.springframework.cloud:spring-cloud-context:3.1.4",
 
             "lombok"                                  : "org.projectlombok:lombok:[1.18.12,)",
             "junit"                                   : "junit:junit",
