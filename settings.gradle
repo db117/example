@@ -7,4 +7,5 @@ include 'websocket'
 include 'leetcode'
 include 'test'
 include 'spring'
+include 'kafka'
 

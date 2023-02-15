@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
+import java.time.Duration;
+
 /**
  * @author db117
  * @date 2020/9/3/003 11:19
@@ -40,12 +42,12 @@ public class SpringApplicationRunListenerImpl implements SpringApplicationRunLis
     }
 
     @Override
-    public void started(ConfigurableApplicationContext context) {
+    public void started(ConfigurableApplicationContext context, Duration timeTaken) {
         log.info("spring-boot启动完成 调用SpringApplicationRunListener.started ,context[{}]", context);
     }
 
     @Override
-    public void running(ConfigurableApplicationContext context) {
+    public void ready(ConfigurableApplicationContext context, Duration timeTaken) {
         log.info("spring-boot启动完成 调用SpringApplicationRunListener.running ,context[{}]", context);
     }
 

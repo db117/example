@@ -1,5 +1,7 @@
 package com.db117.example.test.ext.spring;
 
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
@@ -10,8 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.ServletContextAware;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author db117

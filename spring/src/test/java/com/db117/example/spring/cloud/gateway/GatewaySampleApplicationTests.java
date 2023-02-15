@@ -27,8 +27,8 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.test.util.TestSocketUtils;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import org.springframework.util.SocketUtils;
 import reactor.core.publisher.Mono;
 import reactor.netty.DisposableServer;
 import reactor.netty.http.server.HttpServer;
@@ -58,7 +58,7 @@ public class GatewaySampleApplicationTests {
     @BeforeAll
     public static void beforeClass() {
 
-        targetPort = SocketUtils.findAvailableTcpPort();
+        targetPort = TestSocketUtils.findAvailableTcpPort();
         httpServer = HttpServer.create()
                 .port(targetPort)
                 .route(r -> r.route(rs -> true, (res, rep) -> rep.sendString(Mono.just("123"))))

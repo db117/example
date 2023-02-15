@@ -1,0 +1,18 @@
+spring:
+  kafka:
+    bootstrap-servers:
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      security:
+        protocol: SASL_SSL
+      ssl:
+        trust-store-location: file:D:/home/appadmin/client_truststore.jks
+        trust-store-password:
+      properties:
+        sasl.mechanism: SCRAM-SHA-512
+        sasl.jaas.config:
+        security.protocol: SASL_SSL
+      group-id:
+
+

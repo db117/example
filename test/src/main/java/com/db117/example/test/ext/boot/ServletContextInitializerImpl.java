@@ -1,11 +1,11 @@
 package com.db117.example.test.ext.boot;
 
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
 /**
  * @author db117
