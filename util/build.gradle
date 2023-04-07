@@ -13,6 +13,7 @@ dependencies {
     implementation "${lib.'spring-boot-starter-web'}"
     implementation "${lib.'spring-boot-starter-test'}"
     implementation "${lib.'aviator'}"
+    implementation "${lib.'jakarta.validation'}"
 }
 
 group = 'com.db117.example'

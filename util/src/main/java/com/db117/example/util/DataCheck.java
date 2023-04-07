@@ -3,12 +3,12 @@ package com.db117.example.util;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.groups.Default;
 import lombok.Data;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.groups.Default;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -61,9 +61,7 @@ public class DataCheck {
      */
     public static <T> List<String> validMessage(T t) {
         List<String> list = new ArrayList<>();
-        validator.validate(t, Default.class).forEach(v -> {
-            list.add(v.getMessage());
-        });
+        validator.validate(t, Default.class).forEach(v -> list.add(v.getMessage()));
         return list;
     }
 
@@ -77,9 +75,7 @@ public class DataCheck {
      */
     public static <T> List<String> validMessage(T t, Class<?>... groups) {
         List<String> list = new ArrayList<>();
-        validator.validate(t, groups).forEach(v -> {
-            list.add(v.getMessage());
-        });
+        validator.validate(t, groups).forEach(v -> list.add(v.getMessage()));
         return list;
     }
 
